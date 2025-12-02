@@ -1,0 +1,100 @@
+.Home {
+    position: relative;
+
+    .nav-bar {
+        width: 100%;
+        height: 150px;
+        background-color: rgba(0, 0, 0, 0.778);
+        z-index: 10;
+
+        .top-nav {
+            background-color: rgba(0, 0, 0, 0.521);
+            padding-inline: 50px;
+            width: 100%;
+            height: 40%;
+            @include myDisplay(flex, none, center, space-between, none);
+
+            div {
+                @include myDisplay(flex, none, center, space-between, 20px);
+
+                p {
+                    color: white;
+                    font-size: small;
+                }
+
+                i {
+                    color: #FFB03B;
+                }
+            }
+
+            button {
+                width: 160px;
+                height: 30px;
+                background-color: #FFB03B;
+                border: none;
+                border-radius: 20px;
+                color: white;
+            }
+
+        }
+
+        .bottom-nav {
+            width: 100%;
+            height: 60%;
+            padding-inline: 80px;
+
+            @include myDisplay(flex, none, center, space-between, none);
+
+            .lien {
+                width: 700px;
+                @include myDisplay(flex, none, center, space-between, none);
+
+                a {
+                    text-decoration: none;
+                    color: white;
+                    font-size: small;
+                    font-weight: bold;
+                }
+                a:hover{
+                    color: #FFB03B;
+                    transition-duration: 0.5s ;
+                }
+            }
+            div {
+                h1 {
+                    color: white;
+                }
+                .logo{
+                    font-family: "Satisfy", cursive;
+                }
+            }
+        }
+
+    }
+    .carousel{
+        position: absolute;
+        
+        .carousel-inner{
+            .carousel-item{
+                width: 100vw;
+                img{
+                    width: 100%;
+                    height: 100vh;
+                }
+            }
+        }
+    }
+
+    // .carousel-inner {
+    //     .carousel-item {
+    //         width: 100vw;
+
+    //         img {
+    //             width: 100%;
+    //             height: 100vh;
+    //         }
+    //     }
+    // }
+
+
+}
