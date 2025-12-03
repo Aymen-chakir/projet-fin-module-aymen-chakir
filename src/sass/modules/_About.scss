@@ -1,0 +1,49 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.About {
+    width: 99vw;
+    height: 80vh;
+    background-color: #FFFAF3;
+    @include myDisplay(flex, none, center, center, 20px);
+    padding-top: 50px;
+
+    .img-about {
+        width: 50%;
+        height: 90%;
+        @include myDisplay(flex,none,start,end,none);
+
+        img {
+            width: 600px;
+
+        }
+    }
+
+    .para-about {
+        width: 50%;
+        height: 90%;
+        ul{
+             padding: 0
+        }
+
+        li {
+            @include myDisplay(flex, none, center, none, 5px);
+            align-items: flex-start;
+            color: #444444;
+        }
+
+        i {
+            color: #FFB03B;
+        }
+
+        h2 {
+            font-family: $myfont;
+            color:$colorfont;
+        }
+        p{
+            color: $colorfont;
+        }
+    }
+}

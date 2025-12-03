@@ -7,7 +7,17 @@ $spacer: 1vw;
 @for $myspaces from 1 through 100{
     $spacers: map-merge($spacers, ($myspaces: $spacer * $myspaces));
 }
-// 
+// color
+$colorfont: #433F39;
+$colorbutton: #FFB03B;
+
+$custom-colors: (
+"colorfont": $colorfont,
+"colorbutton": $colorbutton,
+);
+
+
+$theme-colors: map-merge($custom-colors , $theme-colors);
 
 
 
