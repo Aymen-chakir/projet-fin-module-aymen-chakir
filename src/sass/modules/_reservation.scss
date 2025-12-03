@@ -1,0 +1,81 @@
+.container {
+    @include myDisplay(flex, column, none, none, 30px);
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    .top-why{
+        @include myDisplay(flex,column,center,center,10px);
+        font-family: $myfont;
+        button{
+            border: none;
+            width: 120px;
+            height: 30px;
+            background-color: #FFF7EB;
+            border-radius: 20px
+        }
+    }
+
+    .left-image {
+        @include myDisplay(flex,none,none,none,10px);
+        img {
+            width: 400px;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+    }
+
+    .form-side {
+        flex: 1;
+
+        .row3 {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .row3 input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background: $colorbutton;
+            width: 250px;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 100px;
+        }
+    }
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .row3 {
+        flex-direction: column;
+    }
+}

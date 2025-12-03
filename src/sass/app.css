@@ -277,9 +277,11 @@ p {
 }
 
 abbr[title] {
-  text-decoration: underline dotted;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
   cursor: help;
-  text-decoration-skip-ink: none;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
 }
 
 address {
@@ -6872,7 +6874,9 @@ progress {
   font-weight: 400;
   line-height: 1.5;
   color: var(--bs-body-color);
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background-color: var(--bs-body-bg);
   background-clip: padding-box;
   border: var(--bs-border-width) solid var(--bs-border-color);
@@ -6905,6 +6909,10 @@ progress {
 .form-control::-webkit-datetime-edit {
   display: block;
   padding: 0;
+}
+.form-control::-moz-placeholder {
+  color: var(--bs-secondary-color);
+  opacity: 1;
 }
 .form-control::placeholder {
   color: var(--bs-secondary-color);
@@ -7022,7 +7030,9 @@ textarea.form-control-lg {
   font-weight: 400;
   line-height: 1.5;
   color: var(--bs-body-color);
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background-color: var(--bs-body-bg);
   background-image: var(--bs-form-select-bg-img), var(--bs-form-select-bg-icon, none);
   background-repeat: no-repeat;
@@ -7103,14 +7113,17 @@ textarea.form-control-lg {
   height: 1em;
   margin-top: 0.25em;
   vertical-align: top;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background-color: var(--bs-form-check-bg);
   background-image: var(--bs-form-check-bg-image);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   border: var(--bs-border-width) solid var(--bs-border-color);
-  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
 }
 .form-check-input[type=checkbox] {
   border-radius: 0.25em;
@@ -7208,7 +7221,9 @@ textarea.form-control-lg {
   width: 100%;
   height: 1.5rem;
   padding: 0;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background-color: transparent;
 }
 .form-range:focus {
@@ -7227,14 +7242,17 @@ textarea.form-control-lg {
   width: 1rem;
   height: 1rem;
   margin-top: -0.25rem;
-  appearance: none;
+  -webkit-appearance: none;
+          appearance: none;
   background-color: #0d6efd;
   border: 0;
   border-radius: 1rem;
+  -webkit-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
   .form-range::-webkit-slider-thumb {
+    -webkit-transition: none;
     transition: none;
   }
 }
@@ -7253,14 +7271,17 @@ textarea.form-control-lg {
 .form-range::-moz-range-thumb {
   width: 1rem;
   height: 1rem;
-  appearance: none;
+  -moz-appearance: none;
+       appearance: none;
   background-color: #0d6efd;
   border: 0;
   border-radius: 1rem;
+  -moz-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
   .form-range::-moz-range-thumb {
+    -moz-transition: none;
     transition: none;
   }
 }
@@ -7323,9 +7344,16 @@ textarea.form-control-lg {
 .form-floating > .form-control-plaintext {
   padding: 1rem 0.75rem;
 }
+.form-floating > .form-control::-moz-placeholder, .form-floating > .form-control-plaintext::-moz-placeholder {
+  color: transparent;
+}
 .form-floating > .form-control::placeholder,
 .form-floating > .form-control-plaintext::placeholder {
   color: transparent;
+}
+.form-floating > .form-control:not(:-moz-placeholder), .form-floating > .form-control-plaintext:not(:-moz-placeholder) {
+  padding-top: 1.625rem;
+  padding-bottom: 0.625rem;
 }
 .form-floating > .form-control:focus, .form-floating > .form-control:not(:placeholder-shown),
 .form-floating > .form-control-plaintext:focus,
@@ -7343,6 +7371,9 @@ textarea.form-control-lg {
   padding-bottom: 0.625rem;
   padding-left: 0.75rem;
 }
+.form-floating > .form-control:not(:-moz-placeholder) ~ label {
+  transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+}
 .form-floating > .form-control:focus ~ label,
 .form-floating > .form-control:not(:placeholder-shown) ~ label,
 .form-floating > .form-control-plaintext ~ label,
@@ -7351,6 +7382,15 @@ textarea.form-control-lg {
 }
 .form-floating > .form-control:-webkit-autofill ~ label {
   transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+}
+.form-floating > textarea:not(:-moz-placeholder) ~ label::after {
+  position: absolute;
+  inset: 1rem 0.375rem;
+  z-index: -1;
+  height: 1.5em;
+  content: "";
+  background-color: var(--bs-body-bg);
+  border-radius: var(--bs-border-radius);
 }
 .form-floating > textarea:focus ~ label::after,
 .form-floating > textarea:not(:placeholder-shown) ~ label::after {
@@ -7671,7 +7711,9 @@ textarea.form-control-lg {
   text-decoration: none;
   vertical-align: middle;
   cursor: pointer;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   border: var(--bs-btn-border-width) solid var(--bs-btn-border-color);
   border-radius: var(--bs-btn-border-radius);
   background-color: var(--bs-btn-bg);
@@ -10164,7 +10206,9 @@ textarea.form-control-lg {
 }
 .btn-close:disabled, .btn-close.disabled {
   pointer-events: none;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   opacity: var(--bs-btn-close-disabled-opacity);
 }
 
@@ -10219,6 +10263,7 @@ textarea.form-control-lg {
   --bs-toast-zindex: 1090;
   position: absolute;
   z-index: var(--bs-toast-zindex);
+  width: -moz-max-content;
   width: max-content;
   max-width: 100%;
   pointer-events: none;
@@ -11604,14 +11649,17 @@ textarea.form-control-lg {
   }
 }
 .placeholder-wave {
-  mask-image: linear-gradient(130deg, #000 55%, rgba(0, 0, 0, 0.8) 75%, #000 95%);
-  mask-size: 200% 100%;
+  -webkit-mask-image: linear-gradient(130deg, #000 55%, rgba(0, 0, 0, 0.8) 75%, #000 95%);
+          mask-image: linear-gradient(130deg, #000 55%, rgba(0, 0, 0, 0.8) 75%, #000 95%);
+  -webkit-mask-size: 200% 100%;
+          mask-size: 200% 100%;
   animation: placeholder-wave 2s linear infinite;
 }
 
 @keyframes placeholder-wave {
   100% {
-    mask-position: -200% 0%;
+    -webkit-mask-position: -200% 0%;
+            mask-position: -200% 0%;
   }
 }
 .clearfix::after {
@@ -12016,23 +12064,28 @@ textarea.form-control-lg {
 }
 
 .object-fit-contain {
-  object-fit: contain !important;
+  -o-object-fit: contain !important;
+     object-fit: contain !important;
 }
 
 .object-fit-cover {
-  object-fit: cover !important;
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
 }
 
 .object-fit-fill {
-  object-fit: fill !important;
+  -o-object-fit: fill !important;
+     object-fit: fill !important;
 }
 
 .object-fit-scale {
-  object-fit: scale-down !important;
+  -o-object-fit: scale-down !important;
+     object-fit: scale-down !important;
 }
 
 .object-fit-none {
-  object-fit: none !important;
+  -o-object-fit: none !important;
+     object-fit: none !important;
 }
 
 .opacity-0 {
@@ -19590,407 +19643,508 @@ textarea.form-control-lg {
 }
 
 .column-gap-0 {
-  column-gap: 0 !important;
+  -moz-column-gap: 0 !important;
+       column-gap: 0 !important;
 }
 
 .column-gap-1 {
-  column-gap: 1vw !important;
+  -moz-column-gap: 1vw !important;
+       column-gap: 1vw !important;
 }
 
 .column-gap-2 {
-  column-gap: 2vw !important;
+  -moz-column-gap: 2vw !important;
+       column-gap: 2vw !important;
 }
 
 .column-gap-3 {
-  column-gap: 3vw !important;
+  -moz-column-gap: 3vw !important;
+       column-gap: 3vw !important;
 }
 
 .column-gap-4 {
-  column-gap: 4vw !important;
+  -moz-column-gap: 4vw !important;
+       column-gap: 4vw !important;
 }
 
 .column-gap-5 {
-  column-gap: 5vw !important;
+  -moz-column-gap: 5vw !important;
+       column-gap: 5vw !important;
 }
 
 .column-gap-6 {
-  column-gap: 6vw !important;
+  -moz-column-gap: 6vw !important;
+       column-gap: 6vw !important;
 }
 
 .column-gap-7 {
-  column-gap: 7vw !important;
+  -moz-column-gap: 7vw !important;
+       column-gap: 7vw !important;
 }
 
 .column-gap-8 {
-  column-gap: 8vw !important;
+  -moz-column-gap: 8vw !important;
+       column-gap: 8vw !important;
 }
 
 .column-gap-9 {
-  column-gap: 9vw !important;
+  -moz-column-gap: 9vw !important;
+       column-gap: 9vw !important;
 }
 
 .column-gap-10 {
-  column-gap: 10vw !important;
+  -moz-column-gap: 10vw !important;
+       column-gap: 10vw !important;
 }
 
 .column-gap-11 {
-  column-gap: 11vw !important;
+  -moz-column-gap: 11vw !important;
+       column-gap: 11vw !important;
 }
 
 .column-gap-12 {
-  column-gap: 12vw !important;
+  -moz-column-gap: 12vw !important;
+       column-gap: 12vw !important;
 }
 
 .column-gap-13 {
-  column-gap: 13vw !important;
+  -moz-column-gap: 13vw !important;
+       column-gap: 13vw !important;
 }
 
 .column-gap-14 {
-  column-gap: 14vw !important;
+  -moz-column-gap: 14vw !important;
+       column-gap: 14vw !important;
 }
 
 .column-gap-15 {
-  column-gap: 15vw !important;
+  -moz-column-gap: 15vw !important;
+       column-gap: 15vw !important;
 }
 
 .column-gap-16 {
-  column-gap: 16vw !important;
+  -moz-column-gap: 16vw !important;
+       column-gap: 16vw !important;
 }
 
 .column-gap-17 {
-  column-gap: 17vw !important;
+  -moz-column-gap: 17vw !important;
+       column-gap: 17vw !important;
 }
 
 .column-gap-18 {
-  column-gap: 18vw !important;
+  -moz-column-gap: 18vw !important;
+       column-gap: 18vw !important;
 }
 
 .column-gap-19 {
-  column-gap: 19vw !important;
+  -moz-column-gap: 19vw !important;
+       column-gap: 19vw !important;
 }
 
 .column-gap-20 {
-  column-gap: 20vw !important;
+  -moz-column-gap: 20vw !important;
+       column-gap: 20vw !important;
 }
 
 .column-gap-21 {
-  column-gap: 21vw !important;
+  -moz-column-gap: 21vw !important;
+       column-gap: 21vw !important;
 }
 
 .column-gap-22 {
-  column-gap: 22vw !important;
+  -moz-column-gap: 22vw !important;
+       column-gap: 22vw !important;
 }
 
 .column-gap-23 {
-  column-gap: 23vw !important;
+  -moz-column-gap: 23vw !important;
+       column-gap: 23vw !important;
 }
 
 .column-gap-24 {
-  column-gap: 24vw !important;
+  -moz-column-gap: 24vw !important;
+       column-gap: 24vw !important;
 }
 
 .column-gap-25 {
-  column-gap: 25vw !important;
+  -moz-column-gap: 25vw !important;
+       column-gap: 25vw !important;
 }
 
 .column-gap-26 {
-  column-gap: 26vw !important;
+  -moz-column-gap: 26vw !important;
+       column-gap: 26vw !important;
 }
 
 .column-gap-27 {
-  column-gap: 27vw !important;
+  -moz-column-gap: 27vw !important;
+       column-gap: 27vw !important;
 }
 
 .column-gap-28 {
-  column-gap: 28vw !important;
+  -moz-column-gap: 28vw !important;
+       column-gap: 28vw !important;
 }
 
 .column-gap-29 {
-  column-gap: 29vw !important;
+  -moz-column-gap: 29vw !important;
+       column-gap: 29vw !important;
 }
 
 .column-gap-30 {
-  column-gap: 30vw !important;
+  -moz-column-gap: 30vw !important;
+       column-gap: 30vw !important;
 }
 
 .column-gap-31 {
-  column-gap: 31vw !important;
+  -moz-column-gap: 31vw !important;
+       column-gap: 31vw !important;
 }
 
 .column-gap-32 {
-  column-gap: 32vw !important;
+  -moz-column-gap: 32vw !important;
+       column-gap: 32vw !important;
 }
 
 .column-gap-33 {
-  column-gap: 33vw !important;
+  -moz-column-gap: 33vw !important;
+       column-gap: 33vw !important;
 }
 
 .column-gap-34 {
-  column-gap: 34vw !important;
+  -moz-column-gap: 34vw !important;
+       column-gap: 34vw !important;
 }
 
 .column-gap-35 {
-  column-gap: 35vw !important;
+  -moz-column-gap: 35vw !important;
+       column-gap: 35vw !important;
 }
 
 .column-gap-36 {
-  column-gap: 36vw !important;
+  -moz-column-gap: 36vw !important;
+       column-gap: 36vw !important;
 }
 
 .column-gap-37 {
-  column-gap: 37vw !important;
+  -moz-column-gap: 37vw !important;
+       column-gap: 37vw !important;
 }
 
 .column-gap-38 {
-  column-gap: 38vw !important;
+  -moz-column-gap: 38vw !important;
+       column-gap: 38vw !important;
 }
 
 .column-gap-39 {
-  column-gap: 39vw !important;
+  -moz-column-gap: 39vw !important;
+       column-gap: 39vw !important;
 }
 
 .column-gap-40 {
-  column-gap: 40vw !important;
+  -moz-column-gap: 40vw !important;
+       column-gap: 40vw !important;
 }
 
 .column-gap-41 {
-  column-gap: 41vw !important;
+  -moz-column-gap: 41vw !important;
+       column-gap: 41vw !important;
 }
 
 .column-gap-42 {
-  column-gap: 42vw !important;
+  -moz-column-gap: 42vw !important;
+       column-gap: 42vw !important;
 }
 
 .column-gap-43 {
-  column-gap: 43vw !important;
+  -moz-column-gap: 43vw !important;
+       column-gap: 43vw !important;
 }
 
 .column-gap-44 {
-  column-gap: 44vw !important;
+  -moz-column-gap: 44vw !important;
+       column-gap: 44vw !important;
 }
 
 .column-gap-45 {
-  column-gap: 45vw !important;
+  -moz-column-gap: 45vw !important;
+       column-gap: 45vw !important;
 }
 
 .column-gap-46 {
-  column-gap: 46vw !important;
+  -moz-column-gap: 46vw !important;
+       column-gap: 46vw !important;
 }
 
 .column-gap-47 {
-  column-gap: 47vw !important;
+  -moz-column-gap: 47vw !important;
+       column-gap: 47vw !important;
 }
 
 .column-gap-48 {
-  column-gap: 48vw !important;
+  -moz-column-gap: 48vw !important;
+       column-gap: 48vw !important;
 }
 
 .column-gap-49 {
-  column-gap: 49vw !important;
+  -moz-column-gap: 49vw !important;
+       column-gap: 49vw !important;
 }
 
 .column-gap-50 {
-  column-gap: 50vw !important;
+  -moz-column-gap: 50vw !important;
+       column-gap: 50vw !important;
 }
 
 .column-gap-51 {
-  column-gap: 51vw !important;
+  -moz-column-gap: 51vw !important;
+       column-gap: 51vw !important;
 }
 
 .column-gap-52 {
-  column-gap: 52vw !important;
+  -moz-column-gap: 52vw !important;
+       column-gap: 52vw !important;
 }
 
 .column-gap-53 {
-  column-gap: 53vw !important;
+  -moz-column-gap: 53vw !important;
+       column-gap: 53vw !important;
 }
 
 .column-gap-54 {
-  column-gap: 54vw !important;
+  -moz-column-gap: 54vw !important;
+       column-gap: 54vw !important;
 }
 
 .column-gap-55 {
-  column-gap: 55vw !important;
+  -moz-column-gap: 55vw !important;
+       column-gap: 55vw !important;
 }
 
 .column-gap-56 {
-  column-gap: 56vw !important;
+  -moz-column-gap: 56vw !important;
+       column-gap: 56vw !important;
 }
 
 .column-gap-57 {
-  column-gap: 57vw !important;
+  -moz-column-gap: 57vw !important;
+       column-gap: 57vw !important;
 }
 
 .column-gap-58 {
-  column-gap: 58vw !important;
+  -moz-column-gap: 58vw !important;
+       column-gap: 58vw !important;
 }
 
 .column-gap-59 {
-  column-gap: 59vw !important;
+  -moz-column-gap: 59vw !important;
+       column-gap: 59vw !important;
 }
 
 .column-gap-60 {
-  column-gap: 60vw !important;
+  -moz-column-gap: 60vw !important;
+       column-gap: 60vw !important;
 }
 
 .column-gap-61 {
-  column-gap: 61vw !important;
+  -moz-column-gap: 61vw !important;
+       column-gap: 61vw !important;
 }
 
 .column-gap-62 {
-  column-gap: 62vw !important;
+  -moz-column-gap: 62vw !important;
+       column-gap: 62vw !important;
 }
 
 .column-gap-63 {
-  column-gap: 63vw !important;
+  -moz-column-gap: 63vw !important;
+       column-gap: 63vw !important;
 }
 
 .column-gap-64 {
-  column-gap: 64vw !important;
+  -moz-column-gap: 64vw !important;
+       column-gap: 64vw !important;
 }
 
 .column-gap-65 {
-  column-gap: 65vw !important;
+  -moz-column-gap: 65vw !important;
+       column-gap: 65vw !important;
 }
 
 .column-gap-66 {
-  column-gap: 66vw !important;
+  -moz-column-gap: 66vw !important;
+       column-gap: 66vw !important;
 }
 
 .column-gap-67 {
-  column-gap: 67vw !important;
+  -moz-column-gap: 67vw !important;
+       column-gap: 67vw !important;
 }
 
 .column-gap-68 {
-  column-gap: 68vw !important;
+  -moz-column-gap: 68vw !important;
+       column-gap: 68vw !important;
 }
 
 .column-gap-69 {
-  column-gap: 69vw !important;
+  -moz-column-gap: 69vw !important;
+       column-gap: 69vw !important;
 }
 
 .column-gap-70 {
-  column-gap: 70vw !important;
+  -moz-column-gap: 70vw !important;
+       column-gap: 70vw !important;
 }
 
 .column-gap-71 {
-  column-gap: 71vw !important;
+  -moz-column-gap: 71vw !important;
+       column-gap: 71vw !important;
 }
 
 .column-gap-72 {
-  column-gap: 72vw !important;
+  -moz-column-gap: 72vw !important;
+       column-gap: 72vw !important;
 }
 
 .column-gap-73 {
-  column-gap: 73vw !important;
+  -moz-column-gap: 73vw !important;
+       column-gap: 73vw !important;
 }
 
 .column-gap-74 {
-  column-gap: 74vw !important;
+  -moz-column-gap: 74vw !important;
+       column-gap: 74vw !important;
 }
 
 .column-gap-75 {
-  column-gap: 75vw !important;
+  -moz-column-gap: 75vw !important;
+       column-gap: 75vw !important;
 }
 
 .column-gap-76 {
-  column-gap: 76vw !important;
+  -moz-column-gap: 76vw !important;
+       column-gap: 76vw !important;
 }
 
 .column-gap-77 {
-  column-gap: 77vw !important;
+  -moz-column-gap: 77vw !important;
+       column-gap: 77vw !important;
 }
 
 .column-gap-78 {
-  column-gap: 78vw !important;
+  -moz-column-gap: 78vw !important;
+       column-gap: 78vw !important;
 }
 
 .column-gap-79 {
-  column-gap: 79vw !important;
+  -moz-column-gap: 79vw !important;
+       column-gap: 79vw !important;
 }
 
 .column-gap-80 {
-  column-gap: 80vw !important;
+  -moz-column-gap: 80vw !important;
+       column-gap: 80vw !important;
 }
 
 .column-gap-81 {
-  column-gap: 81vw !important;
+  -moz-column-gap: 81vw !important;
+       column-gap: 81vw !important;
 }
 
 .column-gap-82 {
-  column-gap: 82vw !important;
+  -moz-column-gap: 82vw !important;
+       column-gap: 82vw !important;
 }
 
 .column-gap-83 {
-  column-gap: 83vw !important;
+  -moz-column-gap: 83vw !important;
+       column-gap: 83vw !important;
 }
 
 .column-gap-84 {
-  column-gap: 84vw !important;
+  -moz-column-gap: 84vw !important;
+       column-gap: 84vw !important;
 }
 
 .column-gap-85 {
-  column-gap: 85vw !important;
+  -moz-column-gap: 85vw !important;
+       column-gap: 85vw !important;
 }
 
 .column-gap-86 {
-  column-gap: 86vw !important;
+  -moz-column-gap: 86vw !important;
+       column-gap: 86vw !important;
 }
 
 .column-gap-87 {
-  column-gap: 87vw !important;
+  -moz-column-gap: 87vw !important;
+       column-gap: 87vw !important;
 }
 
 .column-gap-88 {
-  column-gap: 88vw !important;
+  -moz-column-gap: 88vw !important;
+       column-gap: 88vw !important;
 }
 
 .column-gap-89 {
-  column-gap: 89vw !important;
+  -moz-column-gap: 89vw !important;
+       column-gap: 89vw !important;
 }
 
 .column-gap-90 {
-  column-gap: 90vw !important;
+  -moz-column-gap: 90vw !important;
+       column-gap: 90vw !important;
 }
 
 .column-gap-91 {
-  column-gap: 91vw !important;
+  -moz-column-gap: 91vw !important;
+       column-gap: 91vw !important;
 }
 
 .column-gap-92 {
-  column-gap: 92vw !important;
+  -moz-column-gap: 92vw !important;
+       column-gap: 92vw !important;
 }
 
 .column-gap-93 {
-  column-gap: 93vw !important;
+  -moz-column-gap: 93vw !important;
+       column-gap: 93vw !important;
 }
 
 .column-gap-94 {
-  column-gap: 94vw !important;
+  -moz-column-gap: 94vw !important;
+       column-gap: 94vw !important;
 }
 
 .column-gap-95 {
-  column-gap: 95vw !important;
+  -moz-column-gap: 95vw !important;
+       column-gap: 95vw !important;
 }
 
 .column-gap-96 {
-  column-gap: 96vw !important;
+  -moz-column-gap: 96vw !important;
+       column-gap: 96vw !important;
 }
 
 .column-gap-97 {
-  column-gap: 97vw !important;
+  -moz-column-gap: 97vw !important;
+       column-gap: 97vw !important;
 }
 
 .column-gap-98 {
-  column-gap: 98vw !important;
+  -moz-column-gap: 98vw !important;
+       column-gap: 98vw !important;
 }
 
 .column-gap-99 {
-  column-gap: 99vw !important;
+  -moz-column-gap: 99vw !important;
+       column-gap: 99vw !important;
 }
 
 .column-gap-100 {
-  column-gap: 100vw !important;
+  -moz-column-gap: 100vw !important;
+       column-gap: 100vw !important;
 }
 
 .font-monospace {
@@ -20576,15 +20730,21 @@ textarea.form-control-lg {
 }
 
 .user-select-all {
-  user-select: all !important;
+  -webkit-user-select: all !important;
+     -moz-user-select: all !important;
+          user-select: all !important;
 }
 
 .user-select-auto {
-  user-select: auto !important;
+  -webkit-user-select: auto !important;
+     -moz-user-select: auto !important;
+          user-select: auto !important;
 }
 
 .user-select-none {
-  user-select: none !important;
+  -webkit-user-select: none !important;
+     -moz-user-select: none !important;
+          user-select: none !important;
 }
 
 .pe-none {
@@ -20850,19 +21010,24 @@ textarea.form-control-lg {
     float: none !important;
   }
   .object-fit-sm-contain {
-    object-fit: contain !important;
+    -o-object-fit: contain !important;
+       object-fit: contain !important;
   }
   .object-fit-sm-cover {
-    object-fit: cover !important;
+    -o-object-fit: cover !important;
+       object-fit: cover !important;
   }
   .object-fit-sm-fill {
-    object-fit: fill !important;
+    -o-object-fit: fill !important;
+       object-fit: fill !important;
   }
   .object-fit-sm-scale {
-    object-fit: scale-down !important;
+    -o-object-fit: scale-down !important;
+       object-fit: scale-down !important;
   }
   .object-fit-sm-none {
-    object-fit: none !important;
+    -o-object-fit: none !important;
+       object-fit: none !important;
   }
   .d-sm-inline {
     display: inline !important;
@@ -26302,307 +26467,408 @@ textarea.form-control-lg {
     row-gap: 100vw !important;
   }
   .column-gap-sm-0 {
-    column-gap: 0 !important;
+    -moz-column-gap: 0 !important;
+         column-gap: 0 !important;
   }
   .column-gap-sm-1 {
-    column-gap: 1vw !important;
+    -moz-column-gap: 1vw !important;
+         column-gap: 1vw !important;
   }
   .column-gap-sm-2 {
-    column-gap: 2vw !important;
+    -moz-column-gap: 2vw !important;
+         column-gap: 2vw !important;
   }
   .column-gap-sm-3 {
-    column-gap: 3vw !important;
+    -moz-column-gap: 3vw !important;
+         column-gap: 3vw !important;
   }
   .column-gap-sm-4 {
-    column-gap: 4vw !important;
+    -moz-column-gap: 4vw !important;
+         column-gap: 4vw !important;
   }
   .column-gap-sm-5 {
-    column-gap: 5vw !important;
+    -moz-column-gap: 5vw !important;
+         column-gap: 5vw !important;
   }
   .column-gap-sm-6 {
-    column-gap: 6vw !important;
+    -moz-column-gap: 6vw !important;
+         column-gap: 6vw !important;
   }
   .column-gap-sm-7 {
-    column-gap: 7vw !important;
+    -moz-column-gap: 7vw !important;
+         column-gap: 7vw !important;
   }
   .column-gap-sm-8 {
-    column-gap: 8vw !important;
+    -moz-column-gap: 8vw !important;
+         column-gap: 8vw !important;
   }
   .column-gap-sm-9 {
-    column-gap: 9vw !important;
+    -moz-column-gap: 9vw !important;
+         column-gap: 9vw !important;
   }
   .column-gap-sm-10 {
-    column-gap: 10vw !important;
+    -moz-column-gap: 10vw !important;
+         column-gap: 10vw !important;
   }
   .column-gap-sm-11 {
-    column-gap: 11vw !important;
+    -moz-column-gap: 11vw !important;
+         column-gap: 11vw !important;
   }
   .column-gap-sm-12 {
-    column-gap: 12vw !important;
+    -moz-column-gap: 12vw !important;
+         column-gap: 12vw !important;
   }
   .column-gap-sm-13 {
-    column-gap: 13vw !important;
+    -moz-column-gap: 13vw !important;
+         column-gap: 13vw !important;
   }
   .column-gap-sm-14 {
-    column-gap: 14vw !important;
+    -moz-column-gap: 14vw !important;
+         column-gap: 14vw !important;
   }
   .column-gap-sm-15 {
-    column-gap: 15vw !important;
+    -moz-column-gap: 15vw !important;
+         column-gap: 15vw !important;
   }
   .column-gap-sm-16 {
-    column-gap: 16vw !important;
+    -moz-column-gap: 16vw !important;
+         column-gap: 16vw !important;
   }
   .column-gap-sm-17 {
-    column-gap: 17vw !important;
+    -moz-column-gap: 17vw !important;
+         column-gap: 17vw !important;
   }
   .column-gap-sm-18 {
-    column-gap: 18vw !important;
+    -moz-column-gap: 18vw !important;
+         column-gap: 18vw !important;
   }
   .column-gap-sm-19 {
-    column-gap: 19vw !important;
+    -moz-column-gap: 19vw !important;
+         column-gap: 19vw !important;
   }
   .column-gap-sm-20 {
-    column-gap: 20vw !important;
+    -moz-column-gap: 20vw !important;
+         column-gap: 20vw !important;
   }
   .column-gap-sm-21 {
-    column-gap: 21vw !important;
+    -moz-column-gap: 21vw !important;
+         column-gap: 21vw !important;
   }
   .column-gap-sm-22 {
-    column-gap: 22vw !important;
+    -moz-column-gap: 22vw !important;
+         column-gap: 22vw !important;
   }
   .column-gap-sm-23 {
-    column-gap: 23vw !important;
+    -moz-column-gap: 23vw !important;
+         column-gap: 23vw !important;
   }
   .column-gap-sm-24 {
-    column-gap: 24vw !important;
+    -moz-column-gap: 24vw !important;
+         column-gap: 24vw !important;
   }
   .column-gap-sm-25 {
-    column-gap: 25vw !important;
+    -moz-column-gap: 25vw !important;
+         column-gap: 25vw !important;
   }
   .column-gap-sm-26 {
-    column-gap: 26vw !important;
+    -moz-column-gap: 26vw !important;
+         column-gap: 26vw !important;
   }
   .column-gap-sm-27 {
-    column-gap: 27vw !important;
+    -moz-column-gap: 27vw !important;
+         column-gap: 27vw !important;
   }
   .column-gap-sm-28 {
-    column-gap: 28vw !important;
+    -moz-column-gap: 28vw !important;
+         column-gap: 28vw !important;
   }
   .column-gap-sm-29 {
-    column-gap: 29vw !important;
+    -moz-column-gap: 29vw !important;
+         column-gap: 29vw !important;
   }
   .column-gap-sm-30 {
-    column-gap: 30vw !important;
+    -moz-column-gap: 30vw !important;
+         column-gap: 30vw !important;
   }
   .column-gap-sm-31 {
-    column-gap: 31vw !important;
+    -moz-column-gap: 31vw !important;
+         column-gap: 31vw !important;
   }
   .column-gap-sm-32 {
-    column-gap: 32vw !important;
+    -moz-column-gap: 32vw !important;
+         column-gap: 32vw !important;
   }
   .column-gap-sm-33 {
-    column-gap: 33vw !important;
+    -moz-column-gap: 33vw !important;
+         column-gap: 33vw !important;
   }
   .column-gap-sm-34 {
-    column-gap: 34vw !important;
+    -moz-column-gap: 34vw !important;
+         column-gap: 34vw !important;
   }
   .column-gap-sm-35 {
-    column-gap: 35vw !important;
+    -moz-column-gap: 35vw !important;
+         column-gap: 35vw !important;
   }
   .column-gap-sm-36 {
-    column-gap: 36vw !important;
+    -moz-column-gap: 36vw !important;
+         column-gap: 36vw !important;
   }
   .column-gap-sm-37 {
-    column-gap: 37vw !important;
+    -moz-column-gap: 37vw !important;
+         column-gap: 37vw !important;
   }
   .column-gap-sm-38 {
-    column-gap: 38vw !important;
+    -moz-column-gap: 38vw !important;
+         column-gap: 38vw !important;
   }
   .column-gap-sm-39 {
-    column-gap: 39vw !important;
+    -moz-column-gap: 39vw !important;
+         column-gap: 39vw !important;
   }
   .column-gap-sm-40 {
-    column-gap: 40vw !important;
+    -moz-column-gap: 40vw !important;
+         column-gap: 40vw !important;
   }
   .column-gap-sm-41 {
-    column-gap: 41vw !important;
+    -moz-column-gap: 41vw !important;
+         column-gap: 41vw !important;
   }
   .column-gap-sm-42 {
-    column-gap: 42vw !important;
+    -moz-column-gap: 42vw !important;
+         column-gap: 42vw !important;
   }
   .column-gap-sm-43 {
-    column-gap: 43vw !important;
+    -moz-column-gap: 43vw !important;
+         column-gap: 43vw !important;
   }
   .column-gap-sm-44 {
-    column-gap: 44vw !important;
+    -moz-column-gap: 44vw !important;
+         column-gap: 44vw !important;
   }
   .column-gap-sm-45 {
-    column-gap: 45vw !important;
+    -moz-column-gap: 45vw !important;
+         column-gap: 45vw !important;
   }
   .column-gap-sm-46 {
-    column-gap: 46vw !important;
+    -moz-column-gap: 46vw !important;
+         column-gap: 46vw !important;
   }
   .column-gap-sm-47 {
-    column-gap: 47vw !important;
+    -moz-column-gap: 47vw !important;
+         column-gap: 47vw !important;
   }
   .column-gap-sm-48 {
-    column-gap: 48vw !important;
+    -moz-column-gap: 48vw !important;
+         column-gap: 48vw !important;
   }
   .column-gap-sm-49 {
-    column-gap: 49vw !important;
+    -moz-column-gap: 49vw !important;
+         column-gap: 49vw !important;
   }
   .column-gap-sm-50 {
-    column-gap: 50vw !important;
+    -moz-column-gap: 50vw !important;
+         column-gap: 50vw !important;
   }
   .column-gap-sm-51 {
-    column-gap: 51vw !important;
+    -moz-column-gap: 51vw !important;
+         column-gap: 51vw !important;
   }
   .column-gap-sm-52 {
-    column-gap: 52vw !important;
+    -moz-column-gap: 52vw !important;
+         column-gap: 52vw !important;
   }
   .column-gap-sm-53 {
-    column-gap: 53vw !important;
+    -moz-column-gap: 53vw !important;
+         column-gap: 53vw !important;
   }
   .column-gap-sm-54 {
-    column-gap: 54vw !important;
+    -moz-column-gap: 54vw !important;
+         column-gap: 54vw !important;
   }
   .column-gap-sm-55 {
-    column-gap: 55vw !important;
+    -moz-column-gap: 55vw !important;
+         column-gap: 55vw !important;
   }
   .column-gap-sm-56 {
-    column-gap: 56vw !important;
+    -moz-column-gap: 56vw !important;
+         column-gap: 56vw !important;
   }
   .column-gap-sm-57 {
-    column-gap: 57vw !important;
+    -moz-column-gap: 57vw !important;
+         column-gap: 57vw !important;
   }
   .column-gap-sm-58 {
-    column-gap: 58vw !important;
+    -moz-column-gap: 58vw !important;
+         column-gap: 58vw !important;
   }
   .column-gap-sm-59 {
-    column-gap: 59vw !important;
+    -moz-column-gap: 59vw !important;
+         column-gap: 59vw !important;
   }
   .column-gap-sm-60 {
-    column-gap: 60vw !important;
+    -moz-column-gap: 60vw !important;
+         column-gap: 60vw !important;
   }
   .column-gap-sm-61 {
-    column-gap: 61vw !important;
+    -moz-column-gap: 61vw !important;
+         column-gap: 61vw !important;
   }
   .column-gap-sm-62 {
-    column-gap: 62vw !important;
+    -moz-column-gap: 62vw !important;
+         column-gap: 62vw !important;
   }
   .column-gap-sm-63 {
-    column-gap: 63vw !important;
+    -moz-column-gap: 63vw !important;
+         column-gap: 63vw !important;
   }
   .column-gap-sm-64 {
-    column-gap: 64vw !important;
+    -moz-column-gap: 64vw !important;
+         column-gap: 64vw !important;
   }
   .column-gap-sm-65 {
-    column-gap: 65vw !important;
+    -moz-column-gap: 65vw !important;
+         column-gap: 65vw !important;
   }
   .column-gap-sm-66 {
-    column-gap: 66vw !important;
+    -moz-column-gap: 66vw !important;
+         column-gap: 66vw !important;
   }
   .column-gap-sm-67 {
-    column-gap: 67vw !important;
+    -moz-column-gap: 67vw !important;
+         column-gap: 67vw !important;
   }
   .column-gap-sm-68 {
-    column-gap: 68vw !important;
+    -moz-column-gap: 68vw !important;
+         column-gap: 68vw !important;
   }
   .column-gap-sm-69 {
-    column-gap: 69vw !important;
+    -moz-column-gap: 69vw !important;
+         column-gap: 69vw !important;
   }
   .column-gap-sm-70 {
-    column-gap: 70vw !important;
+    -moz-column-gap: 70vw !important;
+         column-gap: 70vw !important;
   }
   .column-gap-sm-71 {
-    column-gap: 71vw !important;
+    -moz-column-gap: 71vw !important;
+         column-gap: 71vw !important;
   }
   .column-gap-sm-72 {
-    column-gap: 72vw !important;
+    -moz-column-gap: 72vw !important;
+         column-gap: 72vw !important;
   }
   .column-gap-sm-73 {
-    column-gap: 73vw !important;
+    -moz-column-gap: 73vw !important;
+         column-gap: 73vw !important;
   }
   .column-gap-sm-74 {
-    column-gap: 74vw !important;
+    -moz-column-gap: 74vw !important;
+         column-gap: 74vw !important;
   }
   .column-gap-sm-75 {
-    column-gap: 75vw !important;
+    -moz-column-gap: 75vw !important;
+         column-gap: 75vw !important;
   }
   .column-gap-sm-76 {
-    column-gap: 76vw !important;
+    -moz-column-gap: 76vw !important;
+         column-gap: 76vw !important;
   }
   .column-gap-sm-77 {
-    column-gap: 77vw !important;
+    -moz-column-gap: 77vw !important;
+         column-gap: 77vw !important;
   }
   .column-gap-sm-78 {
-    column-gap: 78vw !important;
+    -moz-column-gap: 78vw !important;
+         column-gap: 78vw !important;
   }
   .column-gap-sm-79 {
-    column-gap: 79vw !important;
+    -moz-column-gap: 79vw !important;
+         column-gap: 79vw !important;
   }
   .column-gap-sm-80 {
-    column-gap: 80vw !important;
+    -moz-column-gap: 80vw !important;
+         column-gap: 80vw !important;
   }
   .column-gap-sm-81 {
-    column-gap: 81vw !important;
+    -moz-column-gap: 81vw !important;
+         column-gap: 81vw !important;
   }
   .column-gap-sm-82 {
-    column-gap: 82vw !important;
+    -moz-column-gap: 82vw !important;
+         column-gap: 82vw !important;
   }
   .column-gap-sm-83 {
-    column-gap: 83vw !important;
+    -moz-column-gap: 83vw !important;
+         column-gap: 83vw !important;
   }
   .column-gap-sm-84 {
-    column-gap: 84vw !important;
+    -moz-column-gap: 84vw !important;
+         column-gap: 84vw !important;
   }
   .column-gap-sm-85 {
-    column-gap: 85vw !important;
+    -moz-column-gap: 85vw !important;
+         column-gap: 85vw !important;
   }
   .column-gap-sm-86 {
-    column-gap: 86vw !important;
+    -moz-column-gap: 86vw !important;
+         column-gap: 86vw !important;
   }
   .column-gap-sm-87 {
-    column-gap: 87vw !important;
+    -moz-column-gap: 87vw !important;
+         column-gap: 87vw !important;
   }
   .column-gap-sm-88 {
-    column-gap: 88vw !important;
+    -moz-column-gap: 88vw !important;
+         column-gap: 88vw !important;
   }
   .column-gap-sm-89 {
-    column-gap: 89vw !important;
+    -moz-column-gap: 89vw !important;
+         column-gap: 89vw !important;
   }
   .column-gap-sm-90 {
-    column-gap: 90vw !important;
+    -moz-column-gap: 90vw !important;
+         column-gap: 90vw !important;
   }
   .column-gap-sm-91 {
-    column-gap: 91vw !important;
+    -moz-column-gap: 91vw !important;
+         column-gap: 91vw !important;
   }
   .column-gap-sm-92 {
-    column-gap: 92vw !important;
+    -moz-column-gap: 92vw !important;
+         column-gap: 92vw !important;
   }
   .column-gap-sm-93 {
-    column-gap: 93vw !important;
+    -moz-column-gap: 93vw !important;
+         column-gap: 93vw !important;
   }
   .column-gap-sm-94 {
-    column-gap: 94vw !important;
+    -moz-column-gap: 94vw !important;
+         column-gap: 94vw !important;
   }
   .column-gap-sm-95 {
-    column-gap: 95vw !important;
+    -moz-column-gap: 95vw !important;
+         column-gap: 95vw !important;
   }
   .column-gap-sm-96 {
-    column-gap: 96vw !important;
+    -moz-column-gap: 96vw !important;
+         column-gap: 96vw !important;
   }
   .column-gap-sm-97 {
-    column-gap: 97vw !important;
+    -moz-column-gap: 97vw !important;
+         column-gap: 97vw !important;
   }
   .column-gap-sm-98 {
-    column-gap: 98vw !important;
+    -moz-column-gap: 98vw !important;
+         column-gap: 98vw !important;
   }
   .column-gap-sm-99 {
-    column-gap: 99vw !important;
+    -moz-column-gap: 99vw !important;
+         column-gap: 99vw !important;
   }
   .column-gap-sm-100 {
-    column-gap: 100vw !important;
+    -moz-column-gap: 100vw !important;
+         column-gap: 100vw !important;
   }
   .text-sm-start {
     text-align: left !important;
@@ -26625,19 +26891,24 @@ textarea.form-control-lg {
     float: none !important;
   }
   .object-fit-md-contain {
-    object-fit: contain !important;
+    -o-object-fit: contain !important;
+       object-fit: contain !important;
   }
   .object-fit-md-cover {
-    object-fit: cover !important;
+    -o-object-fit: cover !important;
+       object-fit: cover !important;
   }
   .object-fit-md-fill {
-    object-fit: fill !important;
+    -o-object-fit: fill !important;
+       object-fit: fill !important;
   }
   .object-fit-md-scale {
-    object-fit: scale-down !important;
+    -o-object-fit: scale-down !important;
+       object-fit: scale-down !important;
   }
   .object-fit-md-none {
-    object-fit: none !important;
+    -o-object-fit: none !important;
+       object-fit: none !important;
   }
   .d-md-inline {
     display: inline !important;
@@ -32077,307 +32348,408 @@ textarea.form-control-lg {
     row-gap: 100vw !important;
   }
   .column-gap-md-0 {
-    column-gap: 0 !important;
+    -moz-column-gap: 0 !important;
+         column-gap: 0 !important;
   }
   .column-gap-md-1 {
-    column-gap: 1vw !important;
+    -moz-column-gap: 1vw !important;
+         column-gap: 1vw !important;
   }
   .column-gap-md-2 {
-    column-gap: 2vw !important;
+    -moz-column-gap: 2vw !important;
+         column-gap: 2vw !important;
   }
   .column-gap-md-3 {
-    column-gap: 3vw !important;
+    -moz-column-gap: 3vw !important;
+         column-gap: 3vw !important;
   }
   .column-gap-md-4 {
-    column-gap: 4vw !important;
+    -moz-column-gap: 4vw !important;
+         column-gap: 4vw !important;
   }
   .column-gap-md-5 {
-    column-gap: 5vw !important;
+    -moz-column-gap: 5vw !important;
+         column-gap: 5vw !important;
   }
   .column-gap-md-6 {
-    column-gap: 6vw !important;
+    -moz-column-gap: 6vw !important;
+         column-gap: 6vw !important;
   }
   .column-gap-md-7 {
-    column-gap: 7vw !important;
+    -moz-column-gap: 7vw !important;
+         column-gap: 7vw !important;
   }
   .column-gap-md-8 {
-    column-gap: 8vw !important;
+    -moz-column-gap: 8vw !important;
+         column-gap: 8vw !important;
   }
   .column-gap-md-9 {
-    column-gap: 9vw !important;
+    -moz-column-gap: 9vw !important;
+         column-gap: 9vw !important;
   }
   .column-gap-md-10 {
-    column-gap: 10vw !important;
+    -moz-column-gap: 10vw !important;
+         column-gap: 10vw !important;
   }
   .column-gap-md-11 {
-    column-gap: 11vw !important;
+    -moz-column-gap: 11vw !important;
+         column-gap: 11vw !important;
   }
   .column-gap-md-12 {
-    column-gap: 12vw !important;
+    -moz-column-gap: 12vw !important;
+         column-gap: 12vw !important;
   }
   .column-gap-md-13 {
-    column-gap: 13vw !important;
+    -moz-column-gap: 13vw !important;
+         column-gap: 13vw !important;
   }
   .column-gap-md-14 {
-    column-gap: 14vw !important;
+    -moz-column-gap: 14vw !important;
+         column-gap: 14vw !important;
   }
   .column-gap-md-15 {
-    column-gap: 15vw !important;
+    -moz-column-gap: 15vw !important;
+         column-gap: 15vw !important;
   }
   .column-gap-md-16 {
-    column-gap: 16vw !important;
+    -moz-column-gap: 16vw !important;
+         column-gap: 16vw !important;
   }
   .column-gap-md-17 {
-    column-gap: 17vw !important;
+    -moz-column-gap: 17vw !important;
+         column-gap: 17vw !important;
   }
   .column-gap-md-18 {
-    column-gap: 18vw !important;
+    -moz-column-gap: 18vw !important;
+         column-gap: 18vw !important;
   }
   .column-gap-md-19 {
-    column-gap: 19vw !important;
+    -moz-column-gap: 19vw !important;
+         column-gap: 19vw !important;
   }
   .column-gap-md-20 {
-    column-gap: 20vw !important;
+    -moz-column-gap: 20vw !important;
+         column-gap: 20vw !important;
   }
   .column-gap-md-21 {
-    column-gap: 21vw !important;
+    -moz-column-gap: 21vw !important;
+         column-gap: 21vw !important;
   }
   .column-gap-md-22 {
-    column-gap: 22vw !important;
+    -moz-column-gap: 22vw !important;
+         column-gap: 22vw !important;
   }
   .column-gap-md-23 {
-    column-gap: 23vw !important;
+    -moz-column-gap: 23vw !important;
+         column-gap: 23vw !important;
   }
   .column-gap-md-24 {
-    column-gap: 24vw !important;
+    -moz-column-gap: 24vw !important;
+         column-gap: 24vw !important;
   }
   .column-gap-md-25 {
-    column-gap: 25vw !important;
+    -moz-column-gap: 25vw !important;
+         column-gap: 25vw !important;
   }
   .column-gap-md-26 {
-    column-gap: 26vw !important;
+    -moz-column-gap: 26vw !important;
+         column-gap: 26vw !important;
   }
   .column-gap-md-27 {
-    column-gap: 27vw !important;
+    -moz-column-gap: 27vw !important;
+         column-gap: 27vw !important;
   }
   .column-gap-md-28 {
-    column-gap: 28vw !important;
+    -moz-column-gap: 28vw !important;
+         column-gap: 28vw !important;
   }
   .column-gap-md-29 {
-    column-gap: 29vw !important;
+    -moz-column-gap: 29vw !important;
+         column-gap: 29vw !important;
   }
   .column-gap-md-30 {
-    column-gap: 30vw !important;
+    -moz-column-gap: 30vw !important;
+         column-gap: 30vw !important;
   }
   .column-gap-md-31 {
-    column-gap: 31vw !important;
+    -moz-column-gap: 31vw !important;
+         column-gap: 31vw !important;
   }
   .column-gap-md-32 {
-    column-gap: 32vw !important;
+    -moz-column-gap: 32vw !important;
+         column-gap: 32vw !important;
   }
   .column-gap-md-33 {
-    column-gap: 33vw !important;
+    -moz-column-gap: 33vw !important;
+         column-gap: 33vw !important;
   }
   .column-gap-md-34 {
-    column-gap: 34vw !important;
+    -moz-column-gap: 34vw !important;
+         column-gap: 34vw !important;
   }
   .column-gap-md-35 {
-    column-gap: 35vw !important;
+    -moz-column-gap: 35vw !important;
+         column-gap: 35vw !important;
   }
   .column-gap-md-36 {
-    column-gap: 36vw !important;
+    -moz-column-gap: 36vw !important;
+         column-gap: 36vw !important;
   }
   .column-gap-md-37 {
-    column-gap: 37vw !important;
+    -moz-column-gap: 37vw !important;
+         column-gap: 37vw !important;
   }
   .column-gap-md-38 {
-    column-gap: 38vw !important;
+    -moz-column-gap: 38vw !important;
+         column-gap: 38vw !important;
   }
   .column-gap-md-39 {
-    column-gap: 39vw !important;
+    -moz-column-gap: 39vw !important;
+         column-gap: 39vw !important;
   }
   .column-gap-md-40 {
-    column-gap: 40vw !important;
+    -moz-column-gap: 40vw !important;
+         column-gap: 40vw !important;
   }
   .column-gap-md-41 {
-    column-gap: 41vw !important;
+    -moz-column-gap: 41vw !important;
+         column-gap: 41vw !important;
   }
   .column-gap-md-42 {
-    column-gap: 42vw !important;
+    -moz-column-gap: 42vw !important;
+         column-gap: 42vw !important;
   }
   .column-gap-md-43 {
-    column-gap: 43vw !important;
+    -moz-column-gap: 43vw !important;
+         column-gap: 43vw !important;
   }
   .column-gap-md-44 {
-    column-gap: 44vw !important;
+    -moz-column-gap: 44vw !important;
+         column-gap: 44vw !important;
   }
   .column-gap-md-45 {
-    column-gap: 45vw !important;
+    -moz-column-gap: 45vw !important;
+         column-gap: 45vw !important;
   }
   .column-gap-md-46 {
-    column-gap: 46vw !important;
+    -moz-column-gap: 46vw !important;
+         column-gap: 46vw !important;
   }
   .column-gap-md-47 {
-    column-gap: 47vw !important;
+    -moz-column-gap: 47vw !important;
+         column-gap: 47vw !important;
   }
   .column-gap-md-48 {
-    column-gap: 48vw !important;
+    -moz-column-gap: 48vw !important;
+         column-gap: 48vw !important;
   }
   .column-gap-md-49 {
-    column-gap: 49vw !important;
+    -moz-column-gap: 49vw !important;
+         column-gap: 49vw !important;
   }
   .column-gap-md-50 {
-    column-gap: 50vw !important;
+    -moz-column-gap: 50vw !important;
+         column-gap: 50vw !important;
   }
   .column-gap-md-51 {
-    column-gap: 51vw !important;
+    -moz-column-gap: 51vw !important;
+         column-gap: 51vw !important;
   }
   .column-gap-md-52 {
-    column-gap: 52vw !important;
+    -moz-column-gap: 52vw !important;
+         column-gap: 52vw !important;
   }
   .column-gap-md-53 {
-    column-gap: 53vw !important;
+    -moz-column-gap: 53vw !important;
+         column-gap: 53vw !important;
   }
   .column-gap-md-54 {
-    column-gap: 54vw !important;
+    -moz-column-gap: 54vw !important;
+         column-gap: 54vw !important;
   }
   .column-gap-md-55 {
-    column-gap: 55vw !important;
+    -moz-column-gap: 55vw !important;
+         column-gap: 55vw !important;
   }
   .column-gap-md-56 {
-    column-gap: 56vw !important;
+    -moz-column-gap: 56vw !important;
+         column-gap: 56vw !important;
   }
   .column-gap-md-57 {
-    column-gap: 57vw !important;
+    -moz-column-gap: 57vw !important;
+         column-gap: 57vw !important;
   }
   .column-gap-md-58 {
-    column-gap: 58vw !important;
+    -moz-column-gap: 58vw !important;
+         column-gap: 58vw !important;
   }
   .column-gap-md-59 {
-    column-gap: 59vw !important;
+    -moz-column-gap: 59vw !important;
+         column-gap: 59vw !important;
   }
   .column-gap-md-60 {
-    column-gap: 60vw !important;
+    -moz-column-gap: 60vw !important;
+         column-gap: 60vw !important;
   }
   .column-gap-md-61 {
-    column-gap: 61vw !important;
+    -moz-column-gap: 61vw !important;
+         column-gap: 61vw !important;
   }
   .column-gap-md-62 {
-    column-gap: 62vw !important;
+    -moz-column-gap: 62vw !important;
+         column-gap: 62vw !important;
   }
   .column-gap-md-63 {
-    column-gap: 63vw !important;
+    -moz-column-gap: 63vw !important;
+         column-gap: 63vw !important;
   }
   .column-gap-md-64 {
-    column-gap: 64vw !important;
+    -moz-column-gap: 64vw !important;
+         column-gap: 64vw !important;
   }
   .column-gap-md-65 {
-    column-gap: 65vw !important;
+    -moz-column-gap: 65vw !important;
+         column-gap: 65vw !important;
   }
   .column-gap-md-66 {
-    column-gap: 66vw !important;
+    -moz-column-gap: 66vw !important;
+         column-gap: 66vw !important;
   }
   .column-gap-md-67 {
-    column-gap: 67vw !important;
+    -moz-column-gap: 67vw !important;
+         column-gap: 67vw !important;
   }
   .column-gap-md-68 {
-    column-gap: 68vw !important;
+    -moz-column-gap: 68vw !important;
+         column-gap: 68vw !important;
   }
   .column-gap-md-69 {
-    column-gap: 69vw !important;
+    -moz-column-gap: 69vw !important;
+         column-gap: 69vw !important;
   }
   .column-gap-md-70 {
-    column-gap: 70vw !important;
+    -moz-column-gap: 70vw !important;
+         column-gap: 70vw !important;
   }
   .column-gap-md-71 {
-    column-gap: 71vw !important;
+    -moz-column-gap: 71vw !important;
+         column-gap: 71vw !important;
   }
   .column-gap-md-72 {
-    column-gap: 72vw !important;
+    -moz-column-gap: 72vw !important;
+         column-gap: 72vw !important;
   }
   .column-gap-md-73 {
-    column-gap: 73vw !important;
+    -moz-column-gap: 73vw !important;
+         column-gap: 73vw !important;
   }
   .column-gap-md-74 {
-    column-gap: 74vw !important;
+    -moz-column-gap: 74vw !important;
+         column-gap: 74vw !important;
   }
   .column-gap-md-75 {
-    column-gap: 75vw !important;
+    -moz-column-gap: 75vw !important;
+         column-gap: 75vw !important;
   }
   .column-gap-md-76 {
-    column-gap: 76vw !important;
+    -moz-column-gap: 76vw !important;
+         column-gap: 76vw !important;
   }
   .column-gap-md-77 {
-    column-gap: 77vw !important;
+    -moz-column-gap: 77vw !important;
+         column-gap: 77vw !important;
   }
   .column-gap-md-78 {
-    column-gap: 78vw !important;
+    -moz-column-gap: 78vw !important;
+         column-gap: 78vw !important;
   }
   .column-gap-md-79 {
-    column-gap: 79vw !important;
+    -moz-column-gap: 79vw !important;
+         column-gap: 79vw !important;
   }
   .column-gap-md-80 {
-    column-gap: 80vw !important;
+    -moz-column-gap: 80vw !important;
+         column-gap: 80vw !important;
   }
   .column-gap-md-81 {
-    column-gap: 81vw !important;
+    -moz-column-gap: 81vw !important;
+         column-gap: 81vw !important;
   }
   .column-gap-md-82 {
-    column-gap: 82vw !important;
+    -moz-column-gap: 82vw !important;
+         column-gap: 82vw !important;
   }
   .column-gap-md-83 {
-    column-gap: 83vw !important;
+    -moz-column-gap: 83vw !important;
+         column-gap: 83vw !important;
   }
   .column-gap-md-84 {
-    column-gap: 84vw !important;
+    -moz-column-gap: 84vw !important;
+         column-gap: 84vw !important;
   }
   .column-gap-md-85 {
-    column-gap: 85vw !important;
+    -moz-column-gap: 85vw !important;
+         column-gap: 85vw !important;
   }
   .column-gap-md-86 {
-    column-gap: 86vw !important;
+    -moz-column-gap: 86vw !important;
+         column-gap: 86vw !important;
   }
   .column-gap-md-87 {
-    column-gap: 87vw !important;
+    -moz-column-gap: 87vw !important;
+         column-gap: 87vw !important;
   }
   .column-gap-md-88 {
-    column-gap: 88vw !important;
+    -moz-column-gap: 88vw !important;
+         column-gap: 88vw !important;
   }
   .column-gap-md-89 {
-    column-gap: 89vw !important;
+    -moz-column-gap: 89vw !important;
+         column-gap: 89vw !important;
   }
   .column-gap-md-90 {
-    column-gap: 90vw !important;
+    -moz-column-gap: 90vw !important;
+         column-gap: 90vw !important;
   }
   .column-gap-md-91 {
-    column-gap: 91vw !important;
+    -moz-column-gap: 91vw !important;
+         column-gap: 91vw !important;
   }
   .column-gap-md-92 {
-    column-gap: 92vw !important;
+    -moz-column-gap: 92vw !important;
+         column-gap: 92vw !important;
   }
   .column-gap-md-93 {
-    column-gap: 93vw !important;
+    -moz-column-gap: 93vw !important;
+         column-gap: 93vw !important;
   }
   .column-gap-md-94 {
-    column-gap: 94vw !important;
+    -moz-column-gap: 94vw !important;
+         column-gap: 94vw !important;
   }
   .column-gap-md-95 {
-    column-gap: 95vw !important;
+    -moz-column-gap: 95vw !important;
+         column-gap: 95vw !important;
   }
   .column-gap-md-96 {
-    column-gap: 96vw !important;
+    -moz-column-gap: 96vw !important;
+         column-gap: 96vw !important;
   }
   .column-gap-md-97 {
-    column-gap: 97vw !important;
+    -moz-column-gap: 97vw !important;
+         column-gap: 97vw !important;
   }
   .column-gap-md-98 {
-    column-gap: 98vw !important;
+    -moz-column-gap: 98vw !important;
+         column-gap: 98vw !important;
   }
   .column-gap-md-99 {
-    column-gap: 99vw !important;
+    -moz-column-gap: 99vw !important;
+         column-gap: 99vw !important;
   }
   .column-gap-md-100 {
-    column-gap: 100vw !important;
+    -moz-column-gap: 100vw !important;
+         column-gap: 100vw !important;
   }
   .text-md-start {
     text-align: left !important;
@@ -32400,19 +32772,24 @@ textarea.form-control-lg {
     float: none !important;
   }
   .object-fit-lg-contain {
-    object-fit: contain !important;
+    -o-object-fit: contain !important;
+       object-fit: contain !important;
   }
   .object-fit-lg-cover {
-    object-fit: cover !important;
+    -o-object-fit: cover !important;
+       object-fit: cover !important;
   }
   .object-fit-lg-fill {
-    object-fit: fill !important;
+    -o-object-fit: fill !important;
+       object-fit: fill !important;
   }
   .object-fit-lg-scale {
-    object-fit: scale-down !important;
+    -o-object-fit: scale-down !important;
+       object-fit: scale-down !important;
   }
   .object-fit-lg-none {
-    object-fit: none !important;
+    -o-object-fit: none !important;
+       object-fit: none !important;
   }
   .d-lg-inline {
     display: inline !important;
@@ -37852,307 +38229,408 @@ textarea.form-control-lg {
     row-gap: 100vw !important;
   }
   .column-gap-lg-0 {
-    column-gap: 0 !important;
+    -moz-column-gap: 0 !important;
+         column-gap: 0 !important;
   }
   .column-gap-lg-1 {
-    column-gap: 1vw !important;
+    -moz-column-gap: 1vw !important;
+         column-gap: 1vw !important;
   }
   .column-gap-lg-2 {
-    column-gap: 2vw !important;
+    -moz-column-gap: 2vw !important;
+         column-gap: 2vw !important;
   }
   .column-gap-lg-3 {
-    column-gap: 3vw !important;
+    -moz-column-gap: 3vw !important;
+         column-gap: 3vw !important;
   }
   .column-gap-lg-4 {
-    column-gap: 4vw !important;
+    -moz-column-gap: 4vw !important;
+         column-gap: 4vw !important;
   }
   .column-gap-lg-5 {
-    column-gap: 5vw !important;
+    -moz-column-gap: 5vw !important;
+         column-gap: 5vw !important;
   }
   .column-gap-lg-6 {
-    column-gap: 6vw !important;
+    -moz-column-gap: 6vw !important;
+         column-gap: 6vw !important;
   }
   .column-gap-lg-7 {
-    column-gap: 7vw !important;
+    -moz-column-gap: 7vw !important;
+         column-gap: 7vw !important;
   }
   .column-gap-lg-8 {
-    column-gap: 8vw !important;
+    -moz-column-gap: 8vw !important;
+         column-gap: 8vw !important;
   }
   .column-gap-lg-9 {
-    column-gap: 9vw !important;
+    -moz-column-gap: 9vw !important;
+         column-gap: 9vw !important;
   }
   .column-gap-lg-10 {
-    column-gap: 10vw !important;
+    -moz-column-gap: 10vw !important;
+         column-gap: 10vw !important;
   }
   .column-gap-lg-11 {
-    column-gap: 11vw !important;
+    -moz-column-gap: 11vw !important;
+         column-gap: 11vw !important;
   }
   .column-gap-lg-12 {
-    column-gap: 12vw !important;
+    -moz-column-gap: 12vw !important;
+         column-gap: 12vw !important;
   }
   .column-gap-lg-13 {
-    column-gap: 13vw !important;
+    -moz-column-gap: 13vw !important;
+         column-gap: 13vw !important;
   }
   .column-gap-lg-14 {
-    column-gap: 14vw !important;
+    -moz-column-gap: 14vw !important;
+         column-gap: 14vw !important;
   }
   .column-gap-lg-15 {
-    column-gap: 15vw !important;
+    -moz-column-gap: 15vw !important;
+         column-gap: 15vw !important;
   }
   .column-gap-lg-16 {
-    column-gap: 16vw !important;
+    -moz-column-gap: 16vw !important;
+         column-gap: 16vw !important;
   }
   .column-gap-lg-17 {
-    column-gap: 17vw !important;
+    -moz-column-gap: 17vw !important;
+         column-gap: 17vw !important;
   }
   .column-gap-lg-18 {
-    column-gap: 18vw !important;
+    -moz-column-gap: 18vw !important;
+         column-gap: 18vw !important;
   }
   .column-gap-lg-19 {
-    column-gap: 19vw !important;
+    -moz-column-gap: 19vw !important;
+         column-gap: 19vw !important;
   }
   .column-gap-lg-20 {
-    column-gap: 20vw !important;
+    -moz-column-gap: 20vw !important;
+         column-gap: 20vw !important;
   }
   .column-gap-lg-21 {
-    column-gap: 21vw !important;
+    -moz-column-gap: 21vw !important;
+         column-gap: 21vw !important;
   }
   .column-gap-lg-22 {
-    column-gap: 22vw !important;
+    -moz-column-gap: 22vw !important;
+         column-gap: 22vw !important;
   }
   .column-gap-lg-23 {
-    column-gap: 23vw !important;
+    -moz-column-gap: 23vw !important;
+         column-gap: 23vw !important;
   }
   .column-gap-lg-24 {
-    column-gap: 24vw !important;
+    -moz-column-gap: 24vw !important;
+         column-gap: 24vw !important;
   }
   .column-gap-lg-25 {
-    column-gap: 25vw !important;
+    -moz-column-gap: 25vw !important;
+         column-gap: 25vw !important;
   }
   .column-gap-lg-26 {
-    column-gap: 26vw !important;
+    -moz-column-gap: 26vw !important;
+         column-gap: 26vw !important;
   }
   .column-gap-lg-27 {
-    column-gap: 27vw !important;
+    -moz-column-gap: 27vw !important;
+         column-gap: 27vw !important;
   }
   .column-gap-lg-28 {
-    column-gap: 28vw !important;
+    -moz-column-gap: 28vw !important;
+         column-gap: 28vw !important;
   }
   .column-gap-lg-29 {
-    column-gap: 29vw !important;
+    -moz-column-gap: 29vw !important;
+         column-gap: 29vw !important;
   }
   .column-gap-lg-30 {
-    column-gap: 30vw !important;
+    -moz-column-gap: 30vw !important;
+         column-gap: 30vw !important;
   }
   .column-gap-lg-31 {
-    column-gap: 31vw !important;
+    -moz-column-gap: 31vw !important;
+         column-gap: 31vw !important;
   }
   .column-gap-lg-32 {
-    column-gap: 32vw !important;
+    -moz-column-gap: 32vw !important;
+         column-gap: 32vw !important;
   }
   .column-gap-lg-33 {
-    column-gap: 33vw !important;
+    -moz-column-gap: 33vw !important;
+         column-gap: 33vw !important;
   }
   .column-gap-lg-34 {
-    column-gap: 34vw !important;
+    -moz-column-gap: 34vw !important;
+         column-gap: 34vw !important;
   }
   .column-gap-lg-35 {
-    column-gap: 35vw !important;
+    -moz-column-gap: 35vw !important;
+         column-gap: 35vw !important;
   }
   .column-gap-lg-36 {
-    column-gap: 36vw !important;
+    -moz-column-gap: 36vw !important;
+         column-gap: 36vw !important;
   }
   .column-gap-lg-37 {
-    column-gap: 37vw !important;
+    -moz-column-gap: 37vw !important;
+         column-gap: 37vw !important;
   }
   .column-gap-lg-38 {
-    column-gap: 38vw !important;
+    -moz-column-gap: 38vw !important;
+         column-gap: 38vw !important;
   }
   .column-gap-lg-39 {
-    column-gap: 39vw !important;
+    -moz-column-gap: 39vw !important;
+         column-gap: 39vw !important;
   }
   .column-gap-lg-40 {
-    column-gap: 40vw !important;
+    -moz-column-gap: 40vw !important;
+         column-gap: 40vw !important;
   }
   .column-gap-lg-41 {
-    column-gap: 41vw !important;
+    -moz-column-gap: 41vw !important;
+         column-gap: 41vw !important;
   }
   .column-gap-lg-42 {
-    column-gap: 42vw !important;
+    -moz-column-gap: 42vw !important;
+         column-gap: 42vw !important;
   }
   .column-gap-lg-43 {
-    column-gap: 43vw !important;
+    -moz-column-gap: 43vw !important;
+         column-gap: 43vw !important;
   }
   .column-gap-lg-44 {
-    column-gap: 44vw !important;
+    -moz-column-gap: 44vw !important;
+         column-gap: 44vw !important;
   }
   .column-gap-lg-45 {
-    column-gap: 45vw !important;
+    -moz-column-gap: 45vw !important;
+         column-gap: 45vw !important;
   }
   .column-gap-lg-46 {
-    column-gap: 46vw !important;
+    -moz-column-gap: 46vw !important;
+         column-gap: 46vw !important;
   }
   .column-gap-lg-47 {
-    column-gap: 47vw !important;
+    -moz-column-gap: 47vw !important;
+         column-gap: 47vw !important;
   }
   .column-gap-lg-48 {
-    column-gap: 48vw !important;
+    -moz-column-gap: 48vw !important;
+         column-gap: 48vw !important;
   }
   .column-gap-lg-49 {
-    column-gap: 49vw !important;
+    -moz-column-gap: 49vw !important;
+         column-gap: 49vw !important;
   }
   .column-gap-lg-50 {
-    column-gap: 50vw !important;
+    -moz-column-gap: 50vw !important;
+         column-gap: 50vw !important;
   }
   .column-gap-lg-51 {
-    column-gap: 51vw !important;
+    -moz-column-gap: 51vw !important;
+         column-gap: 51vw !important;
   }
   .column-gap-lg-52 {
-    column-gap: 52vw !important;
+    -moz-column-gap: 52vw !important;
+         column-gap: 52vw !important;
   }
   .column-gap-lg-53 {
-    column-gap: 53vw !important;
+    -moz-column-gap: 53vw !important;
+         column-gap: 53vw !important;
   }
   .column-gap-lg-54 {
-    column-gap: 54vw !important;
+    -moz-column-gap: 54vw !important;
+         column-gap: 54vw !important;
   }
   .column-gap-lg-55 {
-    column-gap: 55vw !important;
+    -moz-column-gap: 55vw !important;
+         column-gap: 55vw !important;
   }
   .column-gap-lg-56 {
-    column-gap: 56vw !important;
+    -moz-column-gap: 56vw !important;
+         column-gap: 56vw !important;
   }
   .column-gap-lg-57 {
-    column-gap: 57vw !important;
+    -moz-column-gap: 57vw !important;
+         column-gap: 57vw !important;
   }
   .column-gap-lg-58 {
-    column-gap: 58vw !important;
+    -moz-column-gap: 58vw !important;
+         column-gap: 58vw !important;
   }
   .column-gap-lg-59 {
-    column-gap: 59vw !important;
+    -moz-column-gap: 59vw !important;
+         column-gap: 59vw !important;
   }
   .column-gap-lg-60 {
-    column-gap: 60vw !important;
+    -moz-column-gap: 60vw !important;
+         column-gap: 60vw !important;
   }
   .column-gap-lg-61 {
-    column-gap: 61vw !important;
+    -moz-column-gap: 61vw !important;
+         column-gap: 61vw !important;
   }
   .column-gap-lg-62 {
-    column-gap: 62vw !important;
+    -moz-column-gap: 62vw !important;
+         column-gap: 62vw !important;
   }
   .column-gap-lg-63 {
-    column-gap: 63vw !important;
+    -moz-column-gap: 63vw !important;
+         column-gap: 63vw !important;
   }
   .column-gap-lg-64 {
-    column-gap: 64vw !important;
+    -moz-column-gap: 64vw !important;
+         column-gap: 64vw !important;
   }
   .column-gap-lg-65 {
-    column-gap: 65vw !important;
+    -moz-column-gap: 65vw !important;
+         column-gap: 65vw !important;
   }
   .column-gap-lg-66 {
-    column-gap: 66vw !important;
+    -moz-column-gap: 66vw !important;
+         column-gap: 66vw !important;
   }
   .column-gap-lg-67 {
-    column-gap: 67vw !important;
+    -moz-column-gap: 67vw !important;
+         column-gap: 67vw !important;
   }
   .column-gap-lg-68 {
-    column-gap: 68vw !important;
+    -moz-column-gap: 68vw !important;
+         column-gap: 68vw !important;
   }
   .column-gap-lg-69 {
-    column-gap: 69vw !important;
+    -moz-column-gap: 69vw !important;
+         column-gap: 69vw !important;
   }
   .column-gap-lg-70 {
-    column-gap: 70vw !important;
+    -moz-column-gap: 70vw !important;
+         column-gap: 70vw !important;
   }
   .column-gap-lg-71 {
-    column-gap: 71vw !important;
+    -moz-column-gap: 71vw !important;
+         column-gap: 71vw !important;
   }
   .column-gap-lg-72 {
-    column-gap: 72vw !important;
+    -moz-column-gap: 72vw !important;
+         column-gap: 72vw !important;
   }
   .column-gap-lg-73 {
-    column-gap: 73vw !important;
+    -moz-column-gap: 73vw !important;
+         column-gap: 73vw !important;
   }
   .column-gap-lg-74 {
-    column-gap: 74vw !important;
+    -moz-column-gap: 74vw !important;
+         column-gap: 74vw !important;
   }
   .column-gap-lg-75 {
-    column-gap: 75vw !important;
+    -moz-column-gap: 75vw !important;
+         column-gap: 75vw !important;
   }
   .column-gap-lg-76 {
-    column-gap: 76vw !important;
+    -moz-column-gap: 76vw !important;
+         column-gap: 76vw !important;
   }
   .column-gap-lg-77 {
-    column-gap: 77vw !important;
+    -moz-column-gap: 77vw !important;
+         column-gap: 77vw !important;
   }
   .column-gap-lg-78 {
-    column-gap: 78vw !important;
+    -moz-column-gap: 78vw !important;
+         column-gap: 78vw !important;
   }
   .column-gap-lg-79 {
-    column-gap: 79vw !important;
+    -moz-column-gap: 79vw !important;
+         column-gap: 79vw !important;
   }
   .column-gap-lg-80 {
-    column-gap: 80vw !important;
+    -moz-column-gap: 80vw !important;
+         column-gap: 80vw !important;
   }
   .column-gap-lg-81 {
-    column-gap: 81vw !important;
+    -moz-column-gap: 81vw !important;
+         column-gap: 81vw !important;
   }
   .column-gap-lg-82 {
-    column-gap: 82vw !important;
+    -moz-column-gap: 82vw !important;
+         column-gap: 82vw !important;
   }
   .column-gap-lg-83 {
-    column-gap: 83vw !important;
+    -moz-column-gap: 83vw !important;
+         column-gap: 83vw !important;
   }
   .column-gap-lg-84 {
-    column-gap: 84vw !important;
+    -moz-column-gap: 84vw !important;
+         column-gap: 84vw !important;
   }
   .column-gap-lg-85 {
-    column-gap: 85vw !important;
+    -moz-column-gap: 85vw !important;
+         column-gap: 85vw !important;
   }
   .column-gap-lg-86 {
-    column-gap: 86vw !important;
+    -moz-column-gap: 86vw !important;
+         column-gap: 86vw !important;
   }
   .column-gap-lg-87 {
-    column-gap: 87vw !important;
+    -moz-column-gap: 87vw !important;
+         column-gap: 87vw !important;
   }
   .column-gap-lg-88 {
-    column-gap: 88vw !important;
+    -moz-column-gap: 88vw !important;
+         column-gap: 88vw !important;
   }
   .column-gap-lg-89 {
-    column-gap: 89vw !important;
+    -moz-column-gap: 89vw !important;
+         column-gap: 89vw !important;
   }
   .column-gap-lg-90 {
-    column-gap: 90vw !important;
+    -moz-column-gap: 90vw !important;
+         column-gap: 90vw !important;
   }
   .column-gap-lg-91 {
-    column-gap: 91vw !important;
+    -moz-column-gap: 91vw !important;
+         column-gap: 91vw !important;
   }
   .column-gap-lg-92 {
-    column-gap: 92vw !important;
+    -moz-column-gap: 92vw !important;
+         column-gap: 92vw !important;
   }
   .column-gap-lg-93 {
-    column-gap: 93vw !important;
+    -moz-column-gap: 93vw !important;
+         column-gap: 93vw !important;
   }
   .column-gap-lg-94 {
-    column-gap: 94vw !important;
+    -moz-column-gap: 94vw !important;
+         column-gap: 94vw !important;
   }
   .column-gap-lg-95 {
-    column-gap: 95vw !important;
+    -moz-column-gap: 95vw !important;
+         column-gap: 95vw !important;
   }
   .column-gap-lg-96 {
-    column-gap: 96vw !important;
+    -moz-column-gap: 96vw !important;
+         column-gap: 96vw !important;
   }
   .column-gap-lg-97 {
-    column-gap: 97vw !important;
+    -moz-column-gap: 97vw !important;
+         column-gap: 97vw !important;
   }
   .column-gap-lg-98 {
-    column-gap: 98vw !important;
+    -moz-column-gap: 98vw !important;
+         column-gap: 98vw !important;
   }
   .column-gap-lg-99 {
-    column-gap: 99vw !important;
+    -moz-column-gap: 99vw !important;
+         column-gap: 99vw !important;
   }
   .column-gap-lg-100 {
-    column-gap: 100vw !important;
+    -moz-column-gap: 100vw !important;
+         column-gap: 100vw !important;
   }
   .text-lg-start {
     text-align: left !important;
@@ -38175,19 +38653,24 @@ textarea.form-control-lg {
     float: none !important;
   }
   .object-fit-xl-contain {
-    object-fit: contain !important;
+    -o-object-fit: contain !important;
+       object-fit: contain !important;
   }
   .object-fit-xl-cover {
-    object-fit: cover !important;
+    -o-object-fit: cover !important;
+       object-fit: cover !important;
   }
   .object-fit-xl-fill {
-    object-fit: fill !important;
+    -o-object-fit: fill !important;
+       object-fit: fill !important;
   }
   .object-fit-xl-scale {
-    object-fit: scale-down !important;
+    -o-object-fit: scale-down !important;
+       object-fit: scale-down !important;
   }
   .object-fit-xl-none {
-    object-fit: none !important;
+    -o-object-fit: none !important;
+       object-fit: none !important;
   }
   .d-xl-inline {
     display: inline !important;
@@ -43627,307 +44110,408 @@ textarea.form-control-lg {
     row-gap: 100vw !important;
   }
   .column-gap-xl-0 {
-    column-gap: 0 !important;
+    -moz-column-gap: 0 !important;
+         column-gap: 0 !important;
   }
   .column-gap-xl-1 {
-    column-gap: 1vw !important;
+    -moz-column-gap: 1vw !important;
+         column-gap: 1vw !important;
   }
   .column-gap-xl-2 {
-    column-gap: 2vw !important;
+    -moz-column-gap: 2vw !important;
+         column-gap: 2vw !important;
   }
   .column-gap-xl-3 {
-    column-gap: 3vw !important;
+    -moz-column-gap: 3vw !important;
+         column-gap: 3vw !important;
   }
   .column-gap-xl-4 {
-    column-gap: 4vw !important;
+    -moz-column-gap: 4vw !important;
+         column-gap: 4vw !important;
   }
   .column-gap-xl-5 {
-    column-gap: 5vw !important;
+    -moz-column-gap: 5vw !important;
+         column-gap: 5vw !important;
   }
   .column-gap-xl-6 {
-    column-gap: 6vw !important;
+    -moz-column-gap: 6vw !important;
+         column-gap: 6vw !important;
   }
   .column-gap-xl-7 {
-    column-gap: 7vw !important;
+    -moz-column-gap: 7vw !important;
+         column-gap: 7vw !important;
   }
   .column-gap-xl-8 {
-    column-gap: 8vw !important;
+    -moz-column-gap: 8vw !important;
+         column-gap: 8vw !important;
   }
   .column-gap-xl-9 {
-    column-gap: 9vw !important;
+    -moz-column-gap: 9vw !important;
+         column-gap: 9vw !important;
   }
   .column-gap-xl-10 {
-    column-gap: 10vw !important;
+    -moz-column-gap: 10vw !important;
+         column-gap: 10vw !important;
   }
   .column-gap-xl-11 {
-    column-gap: 11vw !important;
+    -moz-column-gap: 11vw !important;
+         column-gap: 11vw !important;
   }
   .column-gap-xl-12 {
-    column-gap: 12vw !important;
+    -moz-column-gap: 12vw !important;
+         column-gap: 12vw !important;
   }
   .column-gap-xl-13 {
-    column-gap: 13vw !important;
+    -moz-column-gap: 13vw !important;
+         column-gap: 13vw !important;
   }
   .column-gap-xl-14 {
-    column-gap: 14vw !important;
+    -moz-column-gap: 14vw !important;
+         column-gap: 14vw !important;
   }
   .column-gap-xl-15 {
-    column-gap: 15vw !important;
+    -moz-column-gap: 15vw !important;
+         column-gap: 15vw !important;
   }
   .column-gap-xl-16 {
-    column-gap: 16vw !important;
+    -moz-column-gap: 16vw !important;
+         column-gap: 16vw !important;
   }
   .column-gap-xl-17 {
-    column-gap: 17vw !important;
+    -moz-column-gap: 17vw !important;
+         column-gap: 17vw !important;
   }
   .column-gap-xl-18 {
-    column-gap: 18vw !important;
+    -moz-column-gap: 18vw !important;
+         column-gap: 18vw !important;
   }
   .column-gap-xl-19 {
-    column-gap: 19vw !important;
+    -moz-column-gap: 19vw !important;
+         column-gap: 19vw !important;
   }
   .column-gap-xl-20 {
-    column-gap: 20vw !important;
+    -moz-column-gap: 20vw !important;
+         column-gap: 20vw !important;
   }
   .column-gap-xl-21 {
-    column-gap: 21vw !important;
+    -moz-column-gap: 21vw !important;
+         column-gap: 21vw !important;
   }
   .column-gap-xl-22 {
-    column-gap: 22vw !important;
+    -moz-column-gap: 22vw !important;
+         column-gap: 22vw !important;
   }
   .column-gap-xl-23 {
-    column-gap: 23vw !important;
+    -moz-column-gap: 23vw !important;
+         column-gap: 23vw !important;
   }
   .column-gap-xl-24 {
-    column-gap: 24vw !important;
+    -moz-column-gap: 24vw !important;
+         column-gap: 24vw !important;
   }
   .column-gap-xl-25 {
-    column-gap: 25vw !important;
+    -moz-column-gap: 25vw !important;
+         column-gap: 25vw !important;
   }
   .column-gap-xl-26 {
-    column-gap: 26vw !important;
+    -moz-column-gap: 26vw !important;
+         column-gap: 26vw !important;
   }
   .column-gap-xl-27 {
-    column-gap: 27vw !important;
+    -moz-column-gap: 27vw !important;
+         column-gap: 27vw !important;
   }
   .column-gap-xl-28 {
-    column-gap: 28vw !important;
+    -moz-column-gap: 28vw !important;
+         column-gap: 28vw !important;
   }
   .column-gap-xl-29 {
-    column-gap: 29vw !important;
+    -moz-column-gap: 29vw !important;
+         column-gap: 29vw !important;
   }
   .column-gap-xl-30 {
-    column-gap: 30vw !important;
+    -moz-column-gap: 30vw !important;
+         column-gap: 30vw !important;
   }
   .column-gap-xl-31 {
-    column-gap: 31vw !important;
+    -moz-column-gap: 31vw !important;
+         column-gap: 31vw !important;
   }
   .column-gap-xl-32 {
-    column-gap: 32vw !important;
+    -moz-column-gap: 32vw !important;
+         column-gap: 32vw !important;
   }
   .column-gap-xl-33 {
-    column-gap: 33vw !important;
+    -moz-column-gap: 33vw !important;
+         column-gap: 33vw !important;
   }
   .column-gap-xl-34 {
-    column-gap: 34vw !important;
+    -moz-column-gap: 34vw !important;
+         column-gap: 34vw !important;
   }
   .column-gap-xl-35 {
-    column-gap: 35vw !important;
+    -moz-column-gap: 35vw !important;
+         column-gap: 35vw !important;
   }
   .column-gap-xl-36 {
-    column-gap: 36vw !important;
+    -moz-column-gap: 36vw !important;
+         column-gap: 36vw !important;
   }
   .column-gap-xl-37 {
-    column-gap: 37vw !important;
+    -moz-column-gap: 37vw !important;
+         column-gap: 37vw !important;
   }
   .column-gap-xl-38 {
-    column-gap: 38vw !important;
+    -moz-column-gap: 38vw !important;
+         column-gap: 38vw !important;
   }
   .column-gap-xl-39 {
-    column-gap: 39vw !important;
+    -moz-column-gap: 39vw !important;
+         column-gap: 39vw !important;
   }
   .column-gap-xl-40 {
-    column-gap: 40vw !important;
+    -moz-column-gap: 40vw !important;
+         column-gap: 40vw !important;
   }
   .column-gap-xl-41 {
-    column-gap: 41vw !important;
+    -moz-column-gap: 41vw !important;
+         column-gap: 41vw !important;
   }
   .column-gap-xl-42 {
-    column-gap: 42vw !important;
+    -moz-column-gap: 42vw !important;
+         column-gap: 42vw !important;
   }
   .column-gap-xl-43 {
-    column-gap: 43vw !important;
+    -moz-column-gap: 43vw !important;
+         column-gap: 43vw !important;
   }
   .column-gap-xl-44 {
-    column-gap: 44vw !important;
+    -moz-column-gap: 44vw !important;
+         column-gap: 44vw !important;
   }
   .column-gap-xl-45 {
-    column-gap: 45vw !important;
+    -moz-column-gap: 45vw !important;
+         column-gap: 45vw !important;
   }
   .column-gap-xl-46 {
-    column-gap: 46vw !important;
+    -moz-column-gap: 46vw !important;
+         column-gap: 46vw !important;
   }
   .column-gap-xl-47 {
-    column-gap: 47vw !important;
+    -moz-column-gap: 47vw !important;
+         column-gap: 47vw !important;
   }
   .column-gap-xl-48 {
-    column-gap: 48vw !important;
+    -moz-column-gap: 48vw !important;
+         column-gap: 48vw !important;
   }
   .column-gap-xl-49 {
-    column-gap: 49vw !important;
+    -moz-column-gap: 49vw !important;
+         column-gap: 49vw !important;
   }
   .column-gap-xl-50 {
-    column-gap: 50vw !important;
+    -moz-column-gap: 50vw !important;
+         column-gap: 50vw !important;
   }
   .column-gap-xl-51 {
-    column-gap: 51vw !important;
+    -moz-column-gap: 51vw !important;
+         column-gap: 51vw !important;
   }
   .column-gap-xl-52 {
-    column-gap: 52vw !important;
+    -moz-column-gap: 52vw !important;
+         column-gap: 52vw !important;
   }
   .column-gap-xl-53 {
-    column-gap: 53vw !important;
+    -moz-column-gap: 53vw !important;
+         column-gap: 53vw !important;
   }
   .column-gap-xl-54 {
-    column-gap: 54vw !important;
+    -moz-column-gap: 54vw !important;
+         column-gap: 54vw !important;
   }
   .column-gap-xl-55 {
-    column-gap: 55vw !important;
+    -moz-column-gap: 55vw !important;
+         column-gap: 55vw !important;
   }
   .column-gap-xl-56 {
-    column-gap: 56vw !important;
+    -moz-column-gap: 56vw !important;
+         column-gap: 56vw !important;
   }
   .column-gap-xl-57 {
-    column-gap: 57vw !important;
+    -moz-column-gap: 57vw !important;
+         column-gap: 57vw !important;
   }
   .column-gap-xl-58 {
-    column-gap: 58vw !important;
+    -moz-column-gap: 58vw !important;
+         column-gap: 58vw !important;
   }
   .column-gap-xl-59 {
-    column-gap: 59vw !important;
+    -moz-column-gap: 59vw !important;
+         column-gap: 59vw !important;
   }
   .column-gap-xl-60 {
-    column-gap: 60vw !important;
+    -moz-column-gap: 60vw !important;
+         column-gap: 60vw !important;
   }
   .column-gap-xl-61 {
-    column-gap: 61vw !important;
+    -moz-column-gap: 61vw !important;
+         column-gap: 61vw !important;
   }
   .column-gap-xl-62 {
-    column-gap: 62vw !important;
+    -moz-column-gap: 62vw !important;
+         column-gap: 62vw !important;
   }
   .column-gap-xl-63 {
-    column-gap: 63vw !important;
+    -moz-column-gap: 63vw !important;
+         column-gap: 63vw !important;
   }
   .column-gap-xl-64 {
-    column-gap: 64vw !important;
+    -moz-column-gap: 64vw !important;
+         column-gap: 64vw !important;
   }
   .column-gap-xl-65 {
-    column-gap: 65vw !important;
+    -moz-column-gap: 65vw !important;
+         column-gap: 65vw !important;
   }
   .column-gap-xl-66 {
-    column-gap: 66vw !important;
+    -moz-column-gap: 66vw !important;
+         column-gap: 66vw !important;
   }
   .column-gap-xl-67 {
-    column-gap: 67vw !important;
+    -moz-column-gap: 67vw !important;
+         column-gap: 67vw !important;
   }
   .column-gap-xl-68 {
-    column-gap: 68vw !important;
+    -moz-column-gap: 68vw !important;
+         column-gap: 68vw !important;
   }
   .column-gap-xl-69 {
-    column-gap: 69vw !important;
+    -moz-column-gap: 69vw !important;
+         column-gap: 69vw !important;
   }
   .column-gap-xl-70 {
-    column-gap: 70vw !important;
+    -moz-column-gap: 70vw !important;
+         column-gap: 70vw !important;
   }
   .column-gap-xl-71 {
-    column-gap: 71vw !important;
+    -moz-column-gap: 71vw !important;
+         column-gap: 71vw !important;
   }
   .column-gap-xl-72 {
-    column-gap: 72vw !important;
+    -moz-column-gap: 72vw !important;
+         column-gap: 72vw !important;
   }
   .column-gap-xl-73 {
-    column-gap: 73vw !important;
+    -moz-column-gap: 73vw !important;
+         column-gap: 73vw !important;
   }
   .column-gap-xl-74 {
-    column-gap: 74vw !important;
+    -moz-column-gap: 74vw !important;
+         column-gap: 74vw !important;
   }
   .column-gap-xl-75 {
-    column-gap: 75vw !important;
+    -moz-column-gap: 75vw !important;
+         column-gap: 75vw !important;
   }
   .column-gap-xl-76 {
-    column-gap: 76vw !important;
+    -moz-column-gap: 76vw !important;
+         column-gap: 76vw !important;
   }
   .column-gap-xl-77 {
-    column-gap: 77vw !important;
+    -moz-column-gap: 77vw !important;
+         column-gap: 77vw !important;
   }
   .column-gap-xl-78 {
-    column-gap: 78vw !important;
+    -moz-column-gap: 78vw !important;
+         column-gap: 78vw !important;
   }
   .column-gap-xl-79 {
-    column-gap: 79vw !important;
+    -moz-column-gap: 79vw !important;
+         column-gap: 79vw !important;
   }
   .column-gap-xl-80 {
-    column-gap: 80vw !important;
+    -moz-column-gap: 80vw !important;
+         column-gap: 80vw !important;
   }
   .column-gap-xl-81 {
-    column-gap: 81vw !important;
+    -moz-column-gap: 81vw !important;
+         column-gap: 81vw !important;
   }
   .column-gap-xl-82 {
-    column-gap: 82vw !important;
+    -moz-column-gap: 82vw !important;
+         column-gap: 82vw !important;
   }
   .column-gap-xl-83 {
-    column-gap: 83vw !important;
+    -moz-column-gap: 83vw !important;
+         column-gap: 83vw !important;
   }
   .column-gap-xl-84 {
-    column-gap: 84vw !important;
+    -moz-column-gap: 84vw !important;
+         column-gap: 84vw !important;
   }
   .column-gap-xl-85 {
-    column-gap: 85vw !important;
+    -moz-column-gap: 85vw !important;
+         column-gap: 85vw !important;
   }
   .column-gap-xl-86 {
-    column-gap: 86vw !important;
+    -moz-column-gap: 86vw !important;
+         column-gap: 86vw !important;
   }
   .column-gap-xl-87 {
-    column-gap: 87vw !important;
+    -moz-column-gap: 87vw !important;
+         column-gap: 87vw !important;
   }
   .column-gap-xl-88 {
-    column-gap: 88vw !important;
+    -moz-column-gap: 88vw !important;
+         column-gap: 88vw !important;
   }
   .column-gap-xl-89 {
-    column-gap: 89vw !important;
+    -moz-column-gap: 89vw !important;
+         column-gap: 89vw !important;
   }
   .column-gap-xl-90 {
-    column-gap: 90vw !important;
+    -moz-column-gap: 90vw !important;
+         column-gap: 90vw !important;
   }
   .column-gap-xl-91 {
-    column-gap: 91vw !important;
+    -moz-column-gap: 91vw !important;
+         column-gap: 91vw !important;
   }
   .column-gap-xl-92 {
-    column-gap: 92vw !important;
+    -moz-column-gap: 92vw !important;
+         column-gap: 92vw !important;
   }
   .column-gap-xl-93 {
-    column-gap: 93vw !important;
+    -moz-column-gap: 93vw !important;
+         column-gap: 93vw !important;
   }
   .column-gap-xl-94 {
-    column-gap: 94vw !important;
+    -moz-column-gap: 94vw !important;
+         column-gap: 94vw !important;
   }
   .column-gap-xl-95 {
-    column-gap: 95vw !important;
+    -moz-column-gap: 95vw !important;
+         column-gap: 95vw !important;
   }
   .column-gap-xl-96 {
-    column-gap: 96vw !important;
+    -moz-column-gap: 96vw !important;
+         column-gap: 96vw !important;
   }
   .column-gap-xl-97 {
-    column-gap: 97vw !important;
+    -moz-column-gap: 97vw !important;
+         column-gap: 97vw !important;
   }
   .column-gap-xl-98 {
-    column-gap: 98vw !important;
+    -moz-column-gap: 98vw !important;
+         column-gap: 98vw !important;
   }
   .column-gap-xl-99 {
-    column-gap: 99vw !important;
+    -moz-column-gap: 99vw !important;
+         column-gap: 99vw !important;
   }
   .column-gap-xl-100 {
-    column-gap: 100vw !important;
+    -moz-column-gap: 100vw !important;
+         column-gap: 100vw !important;
   }
   .text-xl-start {
     text-align: left !important;
@@ -43950,19 +44534,24 @@ textarea.form-control-lg {
     float: none !important;
   }
   .object-fit-xxl-contain {
-    object-fit: contain !important;
+    -o-object-fit: contain !important;
+       object-fit: contain !important;
   }
   .object-fit-xxl-cover {
-    object-fit: cover !important;
+    -o-object-fit: cover !important;
+       object-fit: cover !important;
   }
   .object-fit-xxl-fill {
-    object-fit: fill !important;
+    -o-object-fit: fill !important;
+       object-fit: fill !important;
   }
   .object-fit-xxl-scale {
-    object-fit: scale-down !important;
+    -o-object-fit: scale-down !important;
+       object-fit: scale-down !important;
   }
   .object-fit-xxl-none {
-    object-fit: none !important;
+    -o-object-fit: none !important;
+       object-fit: none !important;
   }
   .d-xxl-inline {
     display: inline !important;
@@ -49402,307 +49991,408 @@ textarea.form-control-lg {
     row-gap: 100vw !important;
   }
   .column-gap-xxl-0 {
-    column-gap: 0 !important;
+    -moz-column-gap: 0 !important;
+         column-gap: 0 !important;
   }
   .column-gap-xxl-1 {
-    column-gap: 1vw !important;
+    -moz-column-gap: 1vw !important;
+         column-gap: 1vw !important;
   }
   .column-gap-xxl-2 {
-    column-gap: 2vw !important;
+    -moz-column-gap: 2vw !important;
+         column-gap: 2vw !important;
   }
   .column-gap-xxl-3 {
-    column-gap: 3vw !important;
+    -moz-column-gap: 3vw !important;
+         column-gap: 3vw !important;
   }
   .column-gap-xxl-4 {
-    column-gap: 4vw !important;
+    -moz-column-gap: 4vw !important;
+         column-gap: 4vw !important;
   }
   .column-gap-xxl-5 {
-    column-gap: 5vw !important;
+    -moz-column-gap: 5vw !important;
+         column-gap: 5vw !important;
   }
   .column-gap-xxl-6 {
-    column-gap: 6vw !important;
+    -moz-column-gap: 6vw !important;
+         column-gap: 6vw !important;
   }
   .column-gap-xxl-7 {
-    column-gap: 7vw !important;
+    -moz-column-gap: 7vw !important;
+         column-gap: 7vw !important;
   }
   .column-gap-xxl-8 {
-    column-gap: 8vw !important;
+    -moz-column-gap: 8vw !important;
+         column-gap: 8vw !important;
   }
   .column-gap-xxl-9 {
-    column-gap: 9vw !important;
+    -moz-column-gap: 9vw !important;
+         column-gap: 9vw !important;
   }
   .column-gap-xxl-10 {
-    column-gap: 10vw !important;
+    -moz-column-gap: 10vw !important;
+         column-gap: 10vw !important;
   }
   .column-gap-xxl-11 {
-    column-gap: 11vw !important;
+    -moz-column-gap: 11vw !important;
+         column-gap: 11vw !important;
   }
   .column-gap-xxl-12 {
-    column-gap: 12vw !important;
+    -moz-column-gap: 12vw !important;
+         column-gap: 12vw !important;
   }
   .column-gap-xxl-13 {
-    column-gap: 13vw !important;
+    -moz-column-gap: 13vw !important;
+         column-gap: 13vw !important;
   }
   .column-gap-xxl-14 {
-    column-gap: 14vw !important;
+    -moz-column-gap: 14vw !important;
+         column-gap: 14vw !important;
   }
   .column-gap-xxl-15 {
-    column-gap: 15vw !important;
+    -moz-column-gap: 15vw !important;
+         column-gap: 15vw !important;
   }
   .column-gap-xxl-16 {
-    column-gap: 16vw !important;
+    -moz-column-gap: 16vw !important;
+         column-gap: 16vw !important;
   }
   .column-gap-xxl-17 {
-    column-gap: 17vw !important;
+    -moz-column-gap: 17vw !important;
+         column-gap: 17vw !important;
   }
   .column-gap-xxl-18 {
-    column-gap: 18vw !important;
+    -moz-column-gap: 18vw !important;
+         column-gap: 18vw !important;
   }
   .column-gap-xxl-19 {
-    column-gap: 19vw !important;
+    -moz-column-gap: 19vw !important;
+         column-gap: 19vw !important;
   }
   .column-gap-xxl-20 {
-    column-gap: 20vw !important;
+    -moz-column-gap: 20vw !important;
+         column-gap: 20vw !important;
   }
   .column-gap-xxl-21 {
-    column-gap: 21vw !important;
+    -moz-column-gap: 21vw !important;
+         column-gap: 21vw !important;
   }
   .column-gap-xxl-22 {
-    column-gap: 22vw !important;
+    -moz-column-gap: 22vw !important;
+         column-gap: 22vw !important;
   }
   .column-gap-xxl-23 {
-    column-gap: 23vw !important;
+    -moz-column-gap: 23vw !important;
+         column-gap: 23vw !important;
   }
   .column-gap-xxl-24 {
-    column-gap: 24vw !important;
+    -moz-column-gap: 24vw !important;
+         column-gap: 24vw !important;
   }
   .column-gap-xxl-25 {
-    column-gap: 25vw !important;
+    -moz-column-gap: 25vw !important;
+         column-gap: 25vw !important;
   }
   .column-gap-xxl-26 {
-    column-gap: 26vw !important;
+    -moz-column-gap: 26vw !important;
+         column-gap: 26vw !important;
   }
   .column-gap-xxl-27 {
-    column-gap: 27vw !important;
+    -moz-column-gap: 27vw !important;
+         column-gap: 27vw !important;
   }
   .column-gap-xxl-28 {
-    column-gap: 28vw !important;
+    -moz-column-gap: 28vw !important;
+         column-gap: 28vw !important;
   }
   .column-gap-xxl-29 {
-    column-gap: 29vw !important;
+    -moz-column-gap: 29vw !important;
+         column-gap: 29vw !important;
   }
   .column-gap-xxl-30 {
-    column-gap: 30vw !important;
+    -moz-column-gap: 30vw !important;
+         column-gap: 30vw !important;
   }
   .column-gap-xxl-31 {
-    column-gap: 31vw !important;
+    -moz-column-gap: 31vw !important;
+         column-gap: 31vw !important;
   }
   .column-gap-xxl-32 {
-    column-gap: 32vw !important;
+    -moz-column-gap: 32vw !important;
+         column-gap: 32vw !important;
   }
   .column-gap-xxl-33 {
-    column-gap: 33vw !important;
+    -moz-column-gap: 33vw !important;
+         column-gap: 33vw !important;
   }
   .column-gap-xxl-34 {
-    column-gap: 34vw !important;
+    -moz-column-gap: 34vw !important;
+         column-gap: 34vw !important;
   }
   .column-gap-xxl-35 {
-    column-gap: 35vw !important;
+    -moz-column-gap: 35vw !important;
+         column-gap: 35vw !important;
   }
   .column-gap-xxl-36 {
-    column-gap: 36vw !important;
+    -moz-column-gap: 36vw !important;
+         column-gap: 36vw !important;
   }
   .column-gap-xxl-37 {
-    column-gap: 37vw !important;
+    -moz-column-gap: 37vw !important;
+         column-gap: 37vw !important;
   }
   .column-gap-xxl-38 {
-    column-gap: 38vw !important;
+    -moz-column-gap: 38vw !important;
+         column-gap: 38vw !important;
   }
   .column-gap-xxl-39 {
-    column-gap: 39vw !important;
+    -moz-column-gap: 39vw !important;
+         column-gap: 39vw !important;
   }
   .column-gap-xxl-40 {
-    column-gap: 40vw !important;
+    -moz-column-gap: 40vw !important;
+         column-gap: 40vw !important;
   }
   .column-gap-xxl-41 {
-    column-gap: 41vw !important;
+    -moz-column-gap: 41vw !important;
+         column-gap: 41vw !important;
   }
   .column-gap-xxl-42 {
-    column-gap: 42vw !important;
+    -moz-column-gap: 42vw !important;
+         column-gap: 42vw !important;
   }
   .column-gap-xxl-43 {
-    column-gap: 43vw !important;
+    -moz-column-gap: 43vw !important;
+         column-gap: 43vw !important;
   }
   .column-gap-xxl-44 {
-    column-gap: 44vw !important;
+    -moz-column-gap: 44vw !important;
+         column-gap: 44vw !important;
   }
   .column-gap-xxl-45 {
-    column-gap: 45vw !important;
+    -moz-column-gap: 45vw !important;
+         column-gap: 45vw !important;
   }
   .column-gap-xxl-46 {
-    column-gap: 46vw !important;
+    -moz-column-gap: 46vw !important;
+         column-gap: 46vw !important;
   }
   .column-gap-xxl-47 {
-    column-gap: 47vw !important;
+    -moz-column-gap: 47vw !important;
+         column-gap: 47vw !important;
   }
   .column-gap-xxl-48 {
-    column-gap: 48vw !important;
+    -moz-column-gap: 48vw !important;
+         column-gap: 48vw !important;
   }
   .column-gap-xxl-49 {
-    column-gap: 49vw !important;
+    -moz-column-gap: 49vw !important;
+         column-gap: 49vw !important;
   }
   .column-gap-xxl-50 {
-    column-gap: 50vw !important;
+    -moz-column-gap: 50vw !important;
+         column-gap: 50vw !important;
   }
   .column-gap-xxl-51 {
-    column-gap: 51vw !important;
+    -moz-column-gap: 51vw !important;
+         column-gap: 51vw !important;
   }
   .column-gap-xxl-52 {
-    column-gap: 52vw !important;
+    -moz-column-gap: 52vw !important;
+         column-gap: 52vw !important;
   }
   .column-gap-xxl-53 {
-    column-gap: 53vw !important;
+    -moz-column-gap: 53vw !important;
+         column-gap: 53vw !important;
   }
   .column-gap-xxl-54 {
-    column-gap: 54vw !important;
+    -moz-column-gap: 54vw !important;
+         column-gap: 54vw !important;
   }
   .column-gap-xxl-55 {
-    column-gap: 55vw !important;
+    -moz-column-gap: 55vw !important;
+         column-gap: 55vw !important;
   }
   .column-gap-xxl-56 {
-    column-gap: 56vw !important;
+    -moz-column-gap: 56vw !important;
+         column-gap: 56vw !important;
   }
   .column-gap-xxl-57 {
-    column-gap: 57vw !important;
+    -moz-column-gap: 57vw !important;
+         column-gap: 57vw !important;
   }
   .column-gap-xxl-58 {
-    column-gap: 58vw !important;
+    -moz-column-gap: 58vw !important;
+         column-gap: 58vw !important;
   }
   .column-gap-xxl-59 {
-    column-gap: 59vw !important;
+    -moz-column-gap: 59vw !important;
+         column-gap: 59vw !important;
   }
   .column-gap-xxl-60 {
-    column-gap: 60vw !important;
+    -moz-column-gap: 60vw !important;
+         column-gap: 60vw !important;
   }
   .column-gap-xxl-61 {
-    column-gap: 61vw !important;
+    -moz-column-gap: 61vw !important;
+         column-gap: 61vw !important;
   }
   .column-gap-xxl-62 {
-    column-gap: 62vw !important;
+    -moz-column-gap: 62vw !important;
+         column-gap: 62vw !important;
   }
   .column-gap-xxl-63 {
-    column-gap: 63vw !important;
+    -moz-column-gap: 63vw !important;
+         column-gap: 63vw !important;
   }
   .column-gap-xxl-64 {
-    column-gap: 64vw !important;
+    -moz-column-gap: 64vw !important;
+         column-gap: 64vw !important;
   }
   .column-gap-xxl-65 {
-    column-gap: 65vw !important;
+    -moz-column-gap: 65vw !important;
+         column-gap: 65vw !important;
   }
   .column-gap-xxl-66 {
-    column-gap: 66vw !important;
+    -moz-column-gap: 66vw !important;
+         column-gap: 66vw !important;
   }
   .column-gap-xxl-67 {
-    column-gap: 67vw !important;
+    -moz-column-gap: 67vw !important;
+         column-gap: 67vw !important;
   }
   .column-gap-xxl-68 {
-    column-gap: 68vw !important;
+    -moz-column-gap: 68vw !important;
+         column-gap: 68vw !important;
   }
   .column-gap-xxl-69 {
-    column-gap: 69vw !important;
+    -moz-column-gap: 69vw !important;
+         column-gap: 69vw !important;
   }
   .column-gap-xxl-70 {
-    column-gap: 70vw !important;
+    -moz-column-gap: 70vw !important;
+         column-gap: 70vw !important;
   }
   .column-gap-xxl-71 {
-    column-gap: 71vw !important;
+    -moz-column-gap: 71vw !important;
+         column-gap: 71vw !important;
   }
   .column-gap-xxl-72 {
-    column-gap: 72vw !important;
+    -moz-column-gap: 72vw !important;
+         column-gap: 72vw !important;
   }
   .column-gap-xxl-73 {
-    column-gap: 73vw !important;
+    -moz-column-gap: 73vw !important;
+         column-gap: 73vw !important;
   }
   .column-gap-xxl-74 {
-    column-gap: 74vw !important;
+    -moz-column-gap: 74vw !important;
+         column-gap: 74vw !important;
   }
   .column-gap-xxl-75 {
-    column-gap: 75vw !important;
+    -moz-column-gap: 75vw !important;
+         column-gap: 75vw !important;
   }
   .column-gap-xxl-76 {
-    column-gap: 76vw !important;
+    -moz-column-gap: 76vw !important;
+         column-gap: 76vw !important;
   }
   .column-gap-xxl-77 {
-    column-gap: 77vw !important;
+    -moz-column-gap: 77vw !important;
+         column-gap: 77vw !important;
   }
   .column-gap-xxl-78 {
-    column-gap: 78vw !important;
+    -moz-column-gap: 78vw !important;
+         column-gap: 78vw !important;
   }
   .column-gap-xxl-79 {
-    column-gap: 79vw !important;
+    -moz-column-gap: 79vw !important;
+         column-gap: 79vw !important;
   }
   .column-gap-xxl-80 {
-    column-gap: 80vw !important;
+    -moz-column-gap: 80vw !important;
+         column-gap: 80vw !important;
   }
   .column-gap-xxl-81 {
-    column-gap: 81vw !important;
+    -moz-column-gap: 81vw !important;
+         column-gap: 81vw !important;
   }
   .column-gap-xxl-82 {
-    column-gap: 82vw !important;
+    -moz-column-gap: 82vw !important;
+         column-gap: 82vw !important;
   }
   .column-gap-xxl-83 {
-    column-gap: 83vw !important;
+    -moz-column-gap: 83vw !important;
+         column-gap: 83vw !important;
   }
   .column-gap-xxl-84 {
-    column-gap: 84vw !important;
+    -moz-column-gap: 84vw !important;
+         column-gap: 84vw !important;
   }
   .column-gap-xxl-85 {
-    column-gap: 85vw !important;
+    -moz-column-gap: 85vw !important;
+         column-gap: 85vw !important;
   }
   .column-gap-xxl-86 {
-    column-gap: 86vw !important;
+    -moz-column-gap: 86vw !important;
+         column-gap: 86vw !important;
   }
   .column-gap-xxl-87 {
-    column-gap: 87vw !important;
+    -moz-column-gap: 87vw !important;
+         column-gap: 87vw !important;
   }
   .column-gap-xxl-88 {
-    column-gap: 88vw !important;
+    -moz-column-gap: 88vw !important;
+         column-gap: 88vw !important;
   }
   .column-gap-xxl-89 {
-    column-gap: 89vw !important;
+    -moz-column-gap: 89vw !important;
+         column-gap: 89vw !important;
   }
   .column-gap-xxl-90 {
-    column-gap: 90vw !important;
+    -moz-column-gap: 90vw !important;
+         column-gap: 90vw !important;
   }
   .column-gap-xxl-91 {
-    column-gap: 91vw !important;
+    -moz-column-gap: 91vw !important;
+         column-gap: 91vw !important;
   }
   .column-gap-xxl-92 {
-    column-gap: 92vw !important;
+    -moz-column-gap: 92vw !important;
+         column-gap: 92vw !important;
   }
   .column-gap-xxl-93 {
-    column-gap: 93vw !important;
+    -moz-column-gap: 93vw !important;
+         column-gap: 93vw !important;
   }
   .column-gap-xxl-94 {
-    column-gap: 94vw !important;
+    -moz-column-gap: 94vw !important;
+         column-gap: 94vw !important;
   }
   .column-gap-xxl-95 {
-    column-gap: 95vw !important;
+    -moz-column-gap: 95vw !important;
+         column-gap: 95vw !important;
   }
   .column-gap-xxl-96 {
-    column-gap: 96vw !important;
+    -moz-column-gap: 96vw !important;
+         column-gap: 96vw !important;
   }
   .column-gap-xxl-97 {
-    column-gap: 97vw !important;
+    -moz-column-gap: 97vw !important;
+         column-gap: 97vw !important;
   }
   .column-gap-xxl-98 {
-    column-gap: 98vw !important;
+    -moz-column-gap: 98vw !important;
+         column-gap: 98vw !important;
   }
   .column-gap-xxl-99 {
-    column-gap: 99vw !important;
+    -moz-column-gap: 99vw !important;
+         column-gap: 99vw !important;
   }
   .column-gap-xxl-100 {
-    column-gap: 100vw !important;
+    -moz-column-gap: 100vw !important;
+         column-gap: 100vw !important;
   }
   .text-xxl-start {
     text-align: left !important;
@@ -50268,6 +50958,7 @@ textarea.form-control-lg {
 }
 .menu .parent-all .left-all .parent-menu {
   width: 100%;
+  height: -moz-max-content;
   height: max-content;
   display: flex;
   flex-direction: none;
@@ -50329,6 +51020,7 @@ textarea.form-control-lg {
 }
 .menu .parent-all .right-all .parent-menu {
   width: 100%;
+  height: -moz-max-content;
   height: max-content;
   display: flex;
   flex-direction: none;
@@ -50378,121 +51070,4 @@ textarea.form-control-lg {
 }
 .menu .parent-all .right-all .parent-menu .price p {
   color: gray;
-}
-
-.events {
-  width: 99vw;
-  height: 90vh;
-  background-image: url(../../../public/images/events-bg.jpg);
-  background-position: 50% 50%;
-  display: flex;
-  flex-direction: none;
-  align-items: center;
-  justify-content: center;
-  gap: none;
-}
-.events .carousel-inner {
-  width: 100%;
-  height: 100%;
-}
-.events .carousel-inner .carousel-item {
-  display: flex;
-  flex-direction: none;
-  align-items: none;
-  justify-content: none;
-  gap: none;
-  width: 100%;
-  height: 80%;
-}
-.events .carousel-inner .carousel-item img {
-  width: 600px;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: none;
-  justify-content: none;
-  gap: 30px;
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-}
-.container .top-why {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-family: "Satisfy", cursive;
-}
-.container .top-why button {
-  border: none;
-  width: 120px;
-  height: 30px;
-  background-color: #FFF7EB;
-  border-radius: 20px;
-}
-.container .left-image {
-  display: flex;
-  flex-direction: none;
-  align-items: none;
-  justify-content: none;
-  gap: 10px;
-}
-.container .left-image img {
-  width: 400px;
-  height: 450px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-.container .form-side {
-  flex: 1;
-}
-.container .form-side .row3 {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
-}
-.container .form-side .row3 input {
-  flex: 1;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-.container .form-side textarea {
-  width: 100%;
-  height: 120px;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  resize: vertical;
-  margin-bottom: 20px;
-}
-.container .form-side button {
-  background: #FFB03B;
-  width: 250px;
-  color: white;
-  padding: 12px 25px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  margin-left: 100px;
-}
-
-button:hover {
-  opacity: 0.9;
-}
-
-/* Responsive */
-@media (max-width: 800px) {
-  .container {
-    flex-direction: column;
-  }
-  .row3 {
-    flex-direction: column;
-  }
-}
-
-/*# sourceMappingURL=app.css.map */
+}/*# sourceMappingURL=app.css.map */
