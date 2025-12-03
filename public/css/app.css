@@ -50494,5 +50494,15 @@ button:hover {
     flex-direction: column;
   }
 }
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.Gallery {
+  width: 99vw;
+  height: 99vh;
+}
 
 /*# sourceMappingURL=app.css.map */
