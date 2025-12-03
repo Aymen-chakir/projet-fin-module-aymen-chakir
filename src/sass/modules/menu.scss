@@ -1,0 +1,165 @@
+.menu {
+    width: 99vw;
+    height: 120vh;
+
+    // background-color: aqua;
+    .top-menu {
+        width: 100%;
+        height: 20%;
+        @include myDisplay(flex, column, center, center, 10px);
+
+        button {
+            border: none;
+            background-color: #FFF7EB;
+            width: 90px;
+            border-radius: 20px;
+            color: $colorbutton;
+        }
+
+        h3 {
+            font-family: $myfont;
+        }
+    }
+
+    .lien-menu {
+        width: 100%;
+        height: 10%;
+        @include myDisplay(flex, none, center, center, 20px);
+
+        a {
+            text-decoration: none;
+            color: #7C7C7C;
+            font-family: $myfont;
+        }
+
+        a:hover {
+            color: $colorbutton;
+            transition: 0.5s;
+        }
+    }
+
+    .parent-all {
+        width: 99vw;
+        height: 70%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding-left: 40px;
+        .left-all {
+            width: 90%;
+            height: 100%;
+                        @include myDisplay(flex, column, center, space-evenly, 10px );
+
+            .parent-menu {
+                width: 100%;
+                height: max-content;
+                @include myDisplay(flex, none, none, none, 10px);
+                img {
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 50%;
+                    border: 5px solid rgba(128, 128, 128, 0.616);
+                }
+
+                .price {
+                    width: 100%;
+
+                    .top-price {
+                        @include myDisplay(flex,none,none,space-between,none);
+                        width: 80%;
+                        position: relative;
+
+                        h5 {
+                            color: rgba(0, 0, 0, 0.615);
+                        }
+
+                        h5:hover {
+                            color: $colorbutton;
+                            transition: 0.8s;
+                        }
+
+                        h3 {
+                            font-size: large;
+                            font-weight: bold;
+                            color: $colorbutton;
+                        }
+
+                        h3::before {
+                            content: "";
+                            position: absolute;
+                            border-bottom: 2px dotted rgba(84, 81, 81, 0.837);
+                            left: 120px;
+                            right: 0;
+                            top: 0;
+                            bottom: 15px;
+                            width: 240px;
+                        }
+
+                    }
+
+                    p {
+                        color: gray;
+                    }
+                }
+            }
+        }
+
+        .right-all {
+            width: 90%;
+            height: 100%;
+            @include myDisplay(flex, column, center, space-evenly, 10px );
+            .parent-menu {
+                width: 100%;
+                height: max-content;
+                @include myDisplay(flex, none, none, none, 10px);
+
+                img {
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 50%;
+                    border: 5px solid rgba(128, 128, 128, 0.616);
+                }
+
+                .price {
+                    width: 100%;
+
+                    .top-price {
+                        @include myDisplay(flex, none, none, space-between, none);
+                        width: 80%;
+                        position: relative;
+
+                        h5 {
+                            color: rgba(0, 0, 0, 0.615);
+                        }
+
+                        h5:hover {
+                            color: $colorbutton;
+                            transition: 0.8s;
+                        }
+
+                        h3 {
+                            font-size: large;
+                            font-weight: bold;
+                            color: $colorbutton;
+                        }
+
+                        h3::before {
+                            content: "";
+                            position: absolute;
+                            border-bottom: 2px dotted rgba(84, 81, 81, 0.837);
+                            left: 120px;
+                            right: 0;
+                            top: 0;
+                            bottom: 15px;
+                            width: 240px;
+                        }
+
+                    }
+
+                    p {
+                        color: gray;
+                    }
+                }
+            }
+        }
+    }
+}

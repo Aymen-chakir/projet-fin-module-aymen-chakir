@@ -50204,5 +50204,180 @@ textarea.form-control-lg {
   color: rgba(128, 128, 128, 0.742);
   font-size: medium;
 }
+.why-Us .bottom-why .parent-caré .carée:hover {
+  background-color: #FFB03B;
+  transition: 0.5s;
+}
+
+.menu {
+  width: 99vw;
+  height: 120vh;
+}
+.menu .top-menu {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.menu .top-menu button {
+  border: none;
+  background-color: #FFF7EB;
+  width: 90px;
+  border-radius: 20px;
+  color: #FFB03B;
+}
+.menu .top-menu h3, .menu .top-menu .h3 {
+  font-family: "Satisfy", cursive;
+}
+.menu .lien-menu {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  flex-direction: none;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.menu .lien-menu a {
+  text-decoration: none;
+  color: #7C7C7C;
+  font-family: "Satisfy", cursive;
+}
+.menu .lien-menu a:hover {
+  color: #FFB03B;
+  transition: 0.5s;
+}
+.menu .parent-all {
+  width: 99vw;
+  height: 70%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-left: 40px;
+}
+.menu .parent-all .left-all {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 10px;
+}
+.menu .parent-all .left-all .parent-menu {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  flex-direction: none;
+  align-items: none;
+  justify-content: none;
+  gap: 10px;
+}
+.menu .parent-all .left-all .parent-menu img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 5px solid rgba(128, 128, 128, 0.616);
+}
+.menu .parent-all .left-all .parent-menu .price {
+  width: 100%;
+}
+.menu .parent-all .left-all .parent-menu .price .top-price {
+  display: flex;
+  flex-direction: none;
+  align-items: none;
+  justify-content: space-between;
+  gap: none;
+  width: 80%;
+  position: relative;
+}
+.menu .parent-all .left-all .parent-menu .price .top-price h5, .menu .parent-all .left-all .parent-menu .price .top-price .h5 {
+  color: rgba(0, 0, 0, 0.615);
+}
+.menu .parent-all .left-all .parent-menu .price .top-price h5:hover, .menu .parent-all .left-all .parent-menu .price .top-price .h5:hover {
+  color: #FFB03B;
+  transition: 0.8s;
+}
+.menu .parent-all .left-all .parent-menu .price .top-price h3, .menu .parent-all .left-all .parent-menu .price .top-price .h3 {
+  font-size: large;
+  font-weight: bold;
+  color: #FFB03B;
+}
+.menu .parent-all .left-all .parent-menu .price .top-price h3::before, .menu .parent-all .left-all .parent-menu .price .top-price .h3::before {
+  content: "";
+  position: absolute;
+  border-bottom: 2px dotted rgba(84, 81, 81, 0.837);
+  left: 120px;
+  right: 0;
+  top: 0;
+  bottom: 15px;
+  width: 240px;
+}
+.menu .parent-all .left-all .parent-menu .price p {
+  color: gray;
+}
+.menu .parent-all .right-all {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 10px;
+}
+.menu .parent-all .right-all .parent-menu {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  flex-direction: none;
+  align-items: none;
+  justify-content: none;
+  gap: 10px;
+}
+.menu .parent-all .right-all .parent-menu img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 5px solid rgba(128, 128, 128, 0.616);
+}
+.menu .parent-all .right-all .parent-menu .price {
+  width: 100%;
+}
+.menu .parent-all .right-all .parent-menu .price .top-price {
+  display: flex;
+  flex-direction: none;
+  align-items: none;
+  justify-content: space-between;
+  gap: none;
+  width: 80%;
+  position: relative;
+}
+.menu .parent-all .right-all .parent-menu .price .top-price h5, .menu .parent-all .right-all .parent-menu .price .top-price .h5 {
+  color: rgba(0, 0, 0, 0.615);
+}
+.menu .parent-all .right-all .parent-menu .price .top-price h5:hover, .menu .parent-all .right-all .parent-menu .price .top-price .h5:hover {
+  color: #FFB03B;
+  transition: 0.8s;
+}
+.menu .parent-all .right-all .parent-menu .price .top-price h3, .menu .parent-all .right-all .parent-menu .price .top-price .h3 {
+  font-size: large;
+  font-weight: bold;
+  color: #FFB03B;
+}
+.menu .parent-all .right-all .parent-menu .price .top-price h3::before, .menu .parent-all .right-all .parent-menu .price .top-price .h3::before {
+  content: "";
+  position: absolute;
+  border-bottom: 2px dotted rgba(84, 81, 81, 0.837);
+  left: 120px;
+  right: 0;
+  top: 0;
+  bottom: 15px;
+  width: 240px;
+}
+.menu .parent-all .right-all .parent-menu .price p {
+  color: gray;
+}
 
 /*# sourceMappingURL=app.css.map */
