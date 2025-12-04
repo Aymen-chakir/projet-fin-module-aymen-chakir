@@ -50531,6 +50531,9 @@ button:hover {
   padding: 0;
   display: inline-block;
 }
+.Gallery .img-gallery .container .row div img {
+  padding: 5px;
+}
 .Gallery .img-gallery .container .row div img:hover {
   transform: scale(1.1);
   transition: 0.8s;
@@ -50748,6 +50751,33 @@ footer .copyright {
   .contact-section .row2 {
     flex-direction: column;
   }
+}
+
+.chef {
+  width: 99vw;
+  height: 80vh;
+}
+.chef .card-group {
+  padding-inline: 50px;
+}
+.chef .card-group .card {
+  width: 400px;
+  position: relative;
+}
+.chef .card-group .card img {
+  width: 100%;
+  padding-left: 40px;
+}
+.chef .card-group .card-body {
+  background-color: rgb(254, 254, 254);
+  width: 300px;
+  position: absolute;
+  left: 90px;
+  bottom: 10px;
+}
+.chef .card-group .card-body .clas {
+  display: flex;
+  justify-content: space-between;
 }
 
 /*# sourceMappingURL=app.css.map */

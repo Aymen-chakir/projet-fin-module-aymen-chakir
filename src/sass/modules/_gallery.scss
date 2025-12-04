@@ -26,6 +26,10 @@
             display: inline-block;
             .row{
                 div{
+                    img{
+                        
+                        padding: 5px;
+                    }
                     img:hover{
                         transform: scale(1.1);
                         transition: 0.8s;

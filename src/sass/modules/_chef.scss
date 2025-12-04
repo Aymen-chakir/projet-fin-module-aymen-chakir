@@ -1,0 +1,26 @@
+.chef{
+    width: 99vw;
+    height: 80vh;
+    .card-group{
+        padding-inline: 50px;
+        .card{
+            width: 400px;
+                    position: relative;
+            img{
+                width: 100%;
+                padding-left: 40px;
+            }
+        }
+        .card-body{
+            background-color: rgb(254, 254, 254);
+            width: 300px;
+            position: absolute;
+            left: 90px;
+            bottom: 10px;
+            .clas{
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+}
