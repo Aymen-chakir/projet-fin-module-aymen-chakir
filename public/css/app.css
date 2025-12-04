@@ -50057,11 +50057,13 @@ textarea.form-control-lg {
 .Home .carousel .carousel-inner .carousel-item .carousel-caption {
   position: absolute;
   bottom: 200px;
+  transition: 0.8s;
 }
 .Home .carousel .carousel-inner .carousel-item .carousel-caption h1, .Home .carousel .carousel-inner .carousel-item .carousel-caption .h1 {
   font-family: "Satisfy", cursive;
   font-weight: bold;
   padding-bottom: 30px;
+  transform: translate(50px, 10px);
 }
 .Home .carousel .carousel-inner .carousel-item .carousel-caption p {
   text-align: justify;
@@ -50092,6 +50094,14 @@ textarea.form-control-lg {
   transition: 0.5s;
 }
 
+@media (max-width: 425px) {
+  .nav-bar .top-nav {
+    display: none;
+  }
+  .nav-bar .bottom-nav {
+    display: none;
+  }
+}
 * {
   padding: 0;
   margin: 0;
@@ -50148,6 +50158,21 @@ textarea.form-control-lg {
   color: #433F39;
 }
 
+@media (max-width: 425px) {
+  .About {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: max-content;
+  }
+}
+@media (max-width: 700px) {
+  .About {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+}
 .why-Us {
   width: 99vw;
   height: 70vh;
@@ -50614,6 +50639,12 @@ footer .copyright {
   color: #bbb;
 }
 
+@media (max-width: 425px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
 @media (max-width: 700px) {
   .footer-container {
     flex-direction: column;
@@ -50796,7 +50827,5 @@ footer .copyright {
   display: flex;
   justify-content: space-between;
 }
-
-@impo;
 
 /*# sourceMappingURL=app.css.map */
