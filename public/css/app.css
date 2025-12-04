@@ -50617,5 +50617,137 @@ footer .copyright {
     text-align: center;
   }
 }
+.contact-section {
+  padding: 50px 20px;
+  font-family: Arial, sans-serif;
+}
+.contact-section .top-why {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.contact-section .top-why button {
+  border: none;
+  width: 120px;
+  height: 30px;
+  background-color: #FFF7EB;
+  border-radius: 20px;
+}
+.contact-section .top-why h2, .contact-section .top-why .h2 {
+  font-family: "Satisfy", cursive;
+}
+.contact-section .map-container {
+  max-width: 100vw;
+  margin: auto;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.contact-section .map-container iframe {
+  width: 100%;
+  height: 450px;
+  border: none;
+}
+.contact-section {
+  /* Responsive */
+}
+@media (max-width: 700px) {
+  .contact-section .map-section .title h2, .contact-section .map-section .title .h2 {
+    font-size: 26px;
+  }
+  .contact-section .map-container iframe {
+    height: 300px;
+  }
+}
+.contact-section .contact-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  gap: 40px;
+  background: #fff;
+}
+.contact-section .contact-container .contact-info {
+  flex: 1;
+  background: #fafafa;
+  padding: 25px;
+  border-radius: 8px;
+}
+.contact-section .contact-container .contact-info h2, .contact-section .contact-container .contact-info .h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+.contact-section .contact-container .contact-info p {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.contact-section .contact-container .info-box {
+  margin-bottom: 20px;
+}
+.contact-section .contact-container .info-box h4, .contact-section .contact-container .info-box .h4 {
+  color: #FFB03B;
+  margin-bottom: 5px;
+  font-family: "Satisfy", cursive;
+}
+.contact-section .contact-form {
+  flex: 2;
+  background: #fff;
+  padding: 25px;
+}
+.contact-section .contact-form h2, .contact-section .contact-form .h2 {
+  font-family: "Satisfy", cursive;
+}
+.contact-section .contact-form .row2 {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+.contact-section .contact-form .row2 input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.contact-section .contact-form .full {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+.contact-section .contact-form textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+  margin-bottom: 15px;
+}
+.contact-section .contact-form button {
+  background: #f2a735;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 100px;
+}
+.contact-section .contact-form button:hover {
+  opacity: 0.9;
+}
+.contact-section {
+  /* Responsive */
+}
+@media (max-width: 800px) {
+  .contact-section .contact-container {
+    flex-direction: column;
+  }
+  .contact-section .row2 {
+    flex-direction: column;
+  }
+}
 
 /*# sourceMappingURL=app.css.map */
