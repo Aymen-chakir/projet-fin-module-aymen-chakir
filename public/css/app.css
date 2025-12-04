@@ -50757,6 +50757,23 @@ footer .copyright {
   width: 99vw;
   height: 80vh;
 }
+.chef .top-why {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.chef .top-why button {
+  border: none;
+  width: 120px;
+  height: 30px;
+  background-color: #FFF7EB;
+  border-radius: 20px;
+}
+.chef .top-why h2, .chef .top-why .h2 {
+  font-family: "Satisfy", cursive;
+}
 .chef .card-group {
   padding-inline: 50px;
 }

@@ -1,6 +1,19 @@
 .chef{
     width: 99vw;
     height: 80vh;
+    .top-why{
+        @include myDisplay(flex,column,center,center,10px);
+        button{
+             border: none;
+            width: 120px;
+            height: 30px;
+            background-color: #FFF7EB;
+            border-radius: 20px
+        }
+        h2{
+            font-family:$myfont;
+        }
+    }
     .card-group{
         padding-inline: 50px;
         .card{
