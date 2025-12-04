@@ -7,19 +7,21 @@ footer {
     .footer-container {
         max-width: 1200px;
         margin: auto;
-        display: flex;
-        justify-content: space-between;
-        gap: 30px;
+        @include myDisplay(flex,none,none,space-between,30px);
         flex-wrap: wrap;
 
         .footer-box {
             flex: 1 1 200px;
             min-width: 200px;
+            div{
+                @include myDisplay(flex,none,none,none,10px);
+            }
 
             h3 {
                 font-size: 18px;
                 margin-bottom: 15px;
-                color: #f2a735;
+                color: $colorbutton;
+                font-family: $myfont;
                 font-weight: 600;
             }
 
@@ -40,18 +42,25 @@ footer {
                 margin-right: 10px;
                 width: 32px;
                 height: 32px;
-                border: 1px solid #f2a735;
+                border: 1px solid ;
                 border-radius: 50%;
-                color: #f2a735;
+                color:$colorbutton;
                 font-size: 14px;
                 text-align: center;
                 line-height: 32px;
                 text-decoration: none;
+                color: gray;
+                i{
+                    color: gray;
+                }
+                i:hover{
+                    color: $colorbutton;
+                    transition: 0.8s;
+                }
             }
 
             a:hover {
-                background: #f2a735;
-                color: #000;
+                color:$colorbutton;
             }
         }
     }
