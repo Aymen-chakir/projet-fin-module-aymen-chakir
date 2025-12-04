@@ -7,4 +7,31 @@
 .Gallery {
     width: 99vw;
     height: 99vh;
+    .top-why{
+        @include myDisplay(flex,column,center,center,5px);
+        height: 20vh;
+        h2{
+            font-family: $myfont
+        }
+        button{
+            border: none;
+            border-radius: 20px;
+            width: 130px;
+        }
+    }
+    .img-gallery{
+        @include myDisplay(flex,column,none,none,none);
+        .container{
+            padding: 0;
+            display: inline-block;
+            .row{
+                div{
+                    img:hover{
+                        transform: scale(1.1);
+                        transition: 0.8s;
+                    }
+                }
+            }
+        }
+    }
 }

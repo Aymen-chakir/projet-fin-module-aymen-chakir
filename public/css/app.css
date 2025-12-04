@@ -50504,6 +50504,37 @@ button:hover {
   width: 99vw;
   height: 99vh;
 }
+.Gallery .top-why {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  height: 20vh;
+}
+.Gallery .top-why h2, .Gallery .top-why .h2 {
+  font-family: "Satisfy", cursive;
+}
+.Gallery .top-why button {
+  border: none;
+  border-radius: 20px;
+  width: 130px;
+}
+.Gallery .img-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: none;
+  justify-content: none;
+  gap: none;
+}
+.Gallery .img-gallery .container {
+  padding: 0;
+  display: inline-block;
+}
+.Gallery .img-gallery .container .row div img:hover {
+  transform: scale(1.1);
+  transition: 0.8s;
+}
 
 footer {
   background: #111;
